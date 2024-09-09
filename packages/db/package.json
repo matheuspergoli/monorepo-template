@@ -1,0 +1,47 @@
+{
+	"name": "@repo/db",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"default": "./src/client.ts"
+		},
+		"./schema": {
+			"types": "./dist/schema.d.ts",
+			"default": "./src/schema.ts"
+		}
+	},
+	"scripts": {
+		"dev": "tsc",
+		"build": "tsc",
+		"clean": "rm -rf .turbo dist node_modules",
+		"db:push": "pnpm with-env drizzle-kit push",
+		"db:studio": "pnpm with-env drizzle-kit studio",
+		"db:generate": "pnpm with-env drizzle-kit generate",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "prettier --write . --ignore-path ../../.gitignore",
+		"with-env": "dotenv -e ../../.env --"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@repo/env": "workspace:*",
+		"@libsql/client": "^0.10.0",
+		"drizzle-orm": "^0.33.0"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"@types/node": "^22.5.4",
+		"drizzle-kit": "^0.24.2",
+		"prettier": "catalog:",
+		"typescript": "catalog:",
+		"dotenv-cli": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}

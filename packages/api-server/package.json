@@ -1,0 +1,40 @@
+{
+	"name": "@repo/api-server",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./src/root.ts",
+			"default": "./src/root.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean": "rm -rf .turbo dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
+	},
+	"dependencies": {
+		"@node-rs/argon2": "^1.8.3",
+		"@repo/lucia": "workspace:*",
+		"@repo/db": "workspace:*",
+		"@repo/oslo": "workspace:*",
+		"@repo/env": "workspace:*",
+		"@repo/emails": "workspace:*",
+		"@trpc/server": "catalog:",
+		"superjson": "2.2.1",
+		"zod": "catalog:",
+		"zxcvbn": "^4.4.2"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"@types/express": "^4.17.21",
+		"@types/node": "^22.5.4",
+		"@types/zxcvbn": "^4.4.5",
+		"prettier": "catalog:",
+		"typescript": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}

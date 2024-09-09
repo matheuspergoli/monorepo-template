@@ -1,0 +1,27 @@
+{
+	"name": "@repo/tailwind-config",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		"./web": "./web.ts"
+	},
+	"license": "MIT",
+	"scripts": {
+		"typecheck": "tsc --noEmit",
+		"clean": "rm -rf .turbo node_modules",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
+	},
+	"dependencies": {
+		"postcss": "^8.4.45",
+		"tailwindcss": "^3.4.10",
+		"tailwindcss-animate": "^1.0.7"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"prettier": "catalog:",
+		"typescript": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}

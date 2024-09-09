@@ -1,0 +1,40 @@
+{
+	"name": "@repo/emails",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./src/index.ts"
+		},
+		"./*": {
+			"types": "./dist/components/*.d.ts",
+			"default": "./src/components/*.tsx"
+		}
+	},
+	"scripts": {
+		"dev": "tsc",
+		"build": "tsc",
+		"clean": "rm -rf .turbo dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@react-email/components": "^0.0.25",
+		"@repo/env": "workspace:*",
+		"react-email": "^3.0.1",
+		"resend": "^4.0.0"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"@types/node": "^22.5.4",
+		"@types/react": "catalog:react18",
+		"prettier": "catalog:",
+		"react": "catalog:react18",
+		"typescript": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}

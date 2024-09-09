@@ -1,0 +1,15 @@
+{
+	"name": "@repo/tsconfig",
+	"private": true,
+	"version": "0.1.0",
+	"files": [
+		"*.json",
+		"*.d.ts"
+	],
+	"scripts": {
+		"clean": "rm -rf .turbo node_modules"
+	},
+	"devDependencies": {
+		"@total-typescript/ts-reset": "^0.6.1"
+	}
+}

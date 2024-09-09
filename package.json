@@ -1,0 +1,26 @@
+{
+	"name": "monorepo-template",
+	"description": "Monorepo template",
+	"packageManager": "pnpm@9.6.0",
+	"scripts": {
+		"dev": "turbo run dev",
+		"build": "turbo run build",
+		"start": "turbo run start",
+		"ui-add": "turbo run ui-add",
+		"db:push": "turbo run db:push",
+		"db:studio": "turbo run db:studio",
+		"db:generate": "turbo run db:generate",
+		"typecheck": "turbo run typecheck",
+		"clean": "turbo run clean && rm -rf .turbo node_modules",
+		"format": "turbo run format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache"
+	},
+	"author": "Matheus Pergoli",
+	"license": "MIT",
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"prettier": "catalog:",
+		"turbo": "^2.1.1",
+		"typescript": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}

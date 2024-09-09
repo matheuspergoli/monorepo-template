@@ -1,0 +1,50 @@
+{
+	"name": "@repo/env",
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		"./api": {
+			"default": "./src/api/env.ts",
+			"types": "./dist/api/env.d.ts"
+		},
+		"./arctic": {
+			"default": "./src/arctic/env.ts",
+			"types": "./dist/arctic/env.d.ts"
+		},
+		"./db": {
+			"default": "./src/db/env.ts",
+			"types": "./dist/db/env.d.ts"
+		},
+		"./resend": {
+			"default": "./src/resend/env.ts",
+			"types": "./dist/resend/env.d.ts"
+		},
+		"./shared": {
+			"default": "./src/shared/env.ts",
+			"types": "./dist/shared/env.d.ts"
+		},
+		"./web": {
+			"default": "./src/web/env.ts",
+			"types": "./dist/web/env.d.ts"
+		}
+	},
+	"private": true,
+	"scripts": {
+		"dev": "tsc",
+		"build": "tsc",
+		"clean": "rm -rf .turbo dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
+	},
+	"dependencies": {
+		"@t3-oss/env-core": "^0.11.1",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"@types/node": "^22.5.4",
+		"vite": "^5.4.3"
+	},
+	"prettier": "@repo/prettier-config"
+}

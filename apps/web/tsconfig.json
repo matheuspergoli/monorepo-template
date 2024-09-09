@@ -1,0 +1,13 @@
+{
+	"extends": "@repo/tsconfig/base.json",
+	"compilerOptions": {
+		"lib": ["es2022", "dom", "dom.iterable"],
+		"jsx": "preserve",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["vite.config.ts", "src"],
+	"exclude": ["node_modules"]
+}

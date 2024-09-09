@@ -1,0 +1,28 @@
+{
+	"name": "@repo/api-client",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"default": "./src/index.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean": "rm -rf .turbo dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"format": "prettier --write . --ignore-path ../../.gitignore"
+	},
+	"dependencies": {
+		"@repo/api-server": "workspace:*"
+	},
+	"devDependencies": {
+		"@repo/prettier-config": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"prettier": "catalog:",
+		"typescript": "catalog:"
+	},
+	"prettier": "@repo/prettier-config"
+}
