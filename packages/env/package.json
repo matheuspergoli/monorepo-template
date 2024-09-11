@@ -32,7 +32,7 @@
 	"scripts": {
 		"dev": "tsc",
 		"build": "tsc",
-		"clean": "rm -rf .turbo dist node_modules",
+		"clean": "rm -rf .turbo .cache dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
 		"format": "prettier --write . --ignore-path ../../.gitignore"
 	},

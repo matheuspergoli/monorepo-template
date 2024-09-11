@@ -20,7 +20,7 @@
 	"scripts": {
 		"dev": "tsc",
 		"build": "tsc",
-		"clean": "rm -rf .turbo dist node_modules",
+		"clean": "rm -rf .turbo .cache dist node_modules",
 		"db:push": "pnpm with-env drizzle-kit push",
 		"db:studio": "pnpm with-env drizzle-kit studio",
 		"db:generate": "pnpm with-env drizzle-kit generate",

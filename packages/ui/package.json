@@ -17,7 +17,7 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsc",
-		"clean": "rm -rf .turbo dist node_modules",
+		"clean": "rm -rf .turbo .cache dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
 		"format": "prettier --write . --ignore-path ../../.gitignore",
 		"ui-add": "pnpm dlx shadcn@latest add && prettier src --write --list-different && tsc"
@@ -32,7 +32,6 @@
 	},
 	"devDependencies": {
 		"@repo/prettier-config": "workspace:*",
-		"@repo/tailwind-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"@types/react": "catalog:react18",
 		"prettier": "catalog:",

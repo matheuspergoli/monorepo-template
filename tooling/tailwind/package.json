@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"scripts": {
 		"typecheck": "tsc --noEmit",
-		"clean": "rm -rf .turbo node_modules",
+		"clean": "rm -rf .turbo .cache node_modules",
 		"format": "prettier --write . --ignore-path ../../.gitignore"
 	},
 	"dependencies": {

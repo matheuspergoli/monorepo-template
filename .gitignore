@@ -60,3 +60,6 @@
 **/*.njsproj
 **/*.sln
 **/*.sw?
+
+# cache
+**/.cache/

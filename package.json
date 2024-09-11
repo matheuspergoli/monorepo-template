@@ -12,7 +12,7 @@
 		"db:generate": "turbo run db:generate",
 		"typecheck": "turbo run typecheck",
 		"clean": "turbo run clean && rm -rf .turbo node_modules",
-		"format": "turbo run format --continue -- --write --cache --cache-location node_modules/.cache/.prettiercache"
+		"format": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache"
 	},
 	"author": "Matheus Pergoli",
 	"license": "MIT",
