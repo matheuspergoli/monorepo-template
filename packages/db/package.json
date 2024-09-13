@@ -24,24 +24,24 @@
 		"db:push": "pnpm with-env drizzle-kit push",
 		"db:studio": "pnpm with-env drizzle-kit studio",
 		"db:generate": "pnpm with-env drizzle-kit generate",
-		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"typecheck": "tsc --noEmit",
 		"format": "prettier --write . --ignore-path ../../.gitignore",
 		"with-env": "dotenv -e ../../.env --"
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@libsql/client": "^0.11.0",
 		"@repo/env": "workspace:*",
-		"@libsql/client": "^0.10.0",
 		"drizzle-orm": "^0.33.0"
 	},
 	"devDependencies": {
 		"@repo/prettier-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"@types/node": "^22.5.4",
+		"dotenv-cli": "catalog:",
 		"drizzle-kit": "^0.24.2",
 		"prettier": "catalog:",
-		"typescript": "catalog:",
-		"dotenv-cli": "catalog:"
+		"typescript": "catalog:"
 	},
 	"prettier": "@repo/prettier-config"
 }

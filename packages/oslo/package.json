@@ -13,7 +13,7 @@
 		"dev": "tsc",
 		"build": "tsc",
 		"clean": "rm -rf .turbo .cache dist node_modules",
-		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"typecheck": "tsc --noEmit",
 		"format": "prettier --write . --ignore-path ../../.gitignore"
 	},
 	"license": "MIT",

@@ -4,28 +4,28 @@
 	"type": "module",
 	"exports": {
 		"./api": {
-			"default": "./src/api/env.ts",
-			"types": "./dist/api/env.d.ts"
+			"types": "./dist/api/env.d.ts",
+			"default": "./src/api/env.ts"
 		},
 		"./arctic": {
-			"default": "./src/arctic/env.ts",
-			"types": "./dist/arctic/env.d.ts"
+			"types": "./dist/arctic/env.d.ts",
+			"default": "./src/arctic/env.ts"
 		},
 		"./db": {
-			"default": "./src/db/env.ts",
-			"types": "./dist/db/env.d.ts"
+			"types": "./dist/db/env.d.ts",
+			"default": "./src/db/env.ts"
 		},
 		"./resend": {
-			"default": "./src/resend/env.ts",
-			"types": "./dist/resend/env.d.ts"
+			"types": "./dist/resend/env.d.ts",
+			"default": "./src/resend/env.ts"
 		},
 		"./shared": {
-			"default": "./src/shared/env.ts",
-			"types": "./dist/shared/env.d.ts"
+			"types": "./dist/shared/env.d.ts",
+			"default": "./src/shared/env.ts"
 		},
 		"./web": {
-			"default": "./src/web/env.ts",
-			"types": "./dist/web/env.d.ts"
+			"types": "./dist/web/env.d.ts",
+			"default": "./src/web/env.ts"
 		}
 	},
 	"private": true,
@@ -33,7 +33,7 @@
 		"dev": "tsc",
 		"build": "tsc",
 		"clean": "rm -rf .turbo .cache dist node_modules",
-		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"typecheck": "tsc --noEmit",
 		"format": "prettier --write . --ignore-path ../../.gitignore"
 	},
 	"dependencies": {
@@ -44,7 +44,7 @@
 		"@repo/prettier-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
 		"@types/node": "^22.5.4",
-		"vite": "^5.4.3"
+		"vite": "^5.4.5"
 	},
 	"prettier": "@repo/prettier-config"
 }

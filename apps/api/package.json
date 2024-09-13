@@ -15,13 +15,13 @@
 	},
 	"dependencies": {
 		"@repo/api-server": "workspace:*",
-		"@repo/lucia": "workspace:*",
-		"@repo/oslo": "workspace:*",
 		"@repo/arctic": "workspace:*",
 		"@repo/db": "workspace:*",
 		"@repo/env": "workspace:*",
+		"@repo/lucia": "workspace:*",
+		"@repo/oslo": "workspace:*",
 		"cors": "^2.8.5",
-		"express": "^4.19.2"
+		"express": "^4.21.0"
 	},
 	"devDependencies": {
 		"@repo/prettier-config": "workspace:*",
@@ -31,7 +31,7 @@
 		"@types/node": "^22.5.4",
 		"dotenv-cli": "catalog:",
 		"prettier": "catalog:",
-		"tsx": "^4.19.0",
+		"tsx": "^4.19.1",
 		"typescript": "catalog:"
 	},
 	"prettier": "@repo/prettier-config"
