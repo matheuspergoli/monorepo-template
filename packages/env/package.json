@@ -4,28 +4,28 @@
 	"type": "module",
 	"exports": {
 		"./api": {
-			"types": "./dist/api/env.d.ts",
-			"default": "./src/api/env.ts"
+			"types": "./src/api/env.ts",
+			"default": "./dist/api/env.js"
 		},
 		"./arctic": {
-			"types": "./dist/arctic/env.d.ts",
-			"default": "./src/arctic/env.ts"
+			"types": "./src/arctic/env.ts",
+			"default": "./dist/arctic/env.js"
 		},
 		"./db": {
-			"types": "./dist/db/env.d.ts",
-			"default": "./src/db/env.ts"
+			"types": "./src/db/env.ts",
+			"default": "./dist/db/env.js"
 		},
 		"./resend": {
-			"types": "./dist/resend/env.d.ts",
-			"default": "./src/resend/env.ts"
+			"types": "./src/resend/env.ts",
+			"default": "./dist/resend/env.js"
 		},
 		"./shared": {
-			"types": "./dist/shared/env.d.ts",
-			"default": "./src/shared/env.ts"
+			"types": "./src/shared/env.ts",
+			"default": "./dist/shared/env.js"
 		},
 		"./web": {
-			"types": "./dist/web/env.d.ts",
-			"default": "./src/web/env.ts"
+			"types": "./src/web/env.ts",
+			"default": "./dist/web/env.js"
 		}
 	},
 	"private": true,

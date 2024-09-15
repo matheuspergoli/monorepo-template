@@ -6,7 +6,7 @@
 	"exports": {
 		".": {
 			"types": "./src/root.ts",
-			"default": "./src/root.ts"
+			"default": "./dist/root.js"
 		}
 	},
 	"license": "MIT",
