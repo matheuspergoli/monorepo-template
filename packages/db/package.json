@@ -30,14 +30,14 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"@libsql/client": "^0.11.0",
+		"@libsql/client": "^0.12.0",
 		"@repo/env": "workspace:*",
 		"drizzle-orm": "^0.33.0"
 	},
 	"devDependencies": {
 		"@repo/prettier-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.5.4",
+		"@types/node": "^22.5.5",
 		"dotenv-cli": "catalog:",
 		"drizzle-kit": "^0.24.2",
 		"prettier": "catalog:",

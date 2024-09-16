@@ -18,15 +18,15 @@
 	},
 	"license": "MIT",
 	"dependencies": {
+		"@lucia-auth/adapter-drizzle": "^1.1.0",
 		"@repo/db": "workspace:*",
 		"@repo/env": "workspace:*",
-		"lucia": "^3.2.0",
-		"@lucia-auth/adapter-drizzle": "^1.1.0"
+		"lucia": "^3.2.0"
 	},
 	"devDependencies": {
 		"@repo/prettier-config": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
-		"@types/node": "^22.5.4",
+		"@types/node": "^22.5.5",
 		"prettier": "catalog:",
 		"typescript": "catalog:"
 	},
