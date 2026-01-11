@@ -1,0 +1,25 @@
+{
+	"name": "@repo/issuer",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"license": "MIT",
+	"scripts": {
+		"build": "bun build --target=bun --minify --sourcemap=external --packages=external --outdir=dist ./src/index.ts",
+		"start": "NODE_ENV=production bun ./dist/index.js",
+		"dev": "bun --watch ./src/index.ts",
+		"clean": "rm -rf dist .turbo node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"dependencies": {
+		"@repo/auth": "workspace:*",
+		"@t3-oss/env-core": "^0.13.10",
+		"ioredis": "^5.9.1",
+		"unstorage": "^1.17.3",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:*",
+		"typescript": "^5.9.3"
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"name": "@repo/ui",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		"./libs/*": {
+			"types": "./dist/libs/*.d.ts",
+			"import": "./src/libs/*.ts"
+		},
+		"./hooks/*": {
+			"types": "./dist/hooks/*.d.ts",
+			"import": "./src/hooks/*.ts"
+		},
+		"./components/*": {
+			"types": "./dist/components/*.d.ts",
+			"import": "./src/components/*.tsx"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"ui-add": "pnpm dlx shadcn@latest add",
+		"clean": "rm -rf dist .cache .turbo node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"dependencies": {
+		"@base-ui/react": "^1.0.0",
+		"@tabler/icons-react": "^3.36.1",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"sonner": "^2.0.7",
+		"tailwind-merge": "^3.4.0",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@repo/tailwind": "workspace:*",
+		"@repo/tsconfig": "workspace:*",
+		"@types/react": "^19.2.8",
+		"react": "^19.2.3",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.3"
+	}
+}

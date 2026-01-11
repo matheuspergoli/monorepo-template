@@ -1,0 +1,24 @@
+{
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "base-lyra",
+	"tsx": true,
+	"rsc": false,
+	"tailwind": {
+		"config": "",
+		"prefix": "",
+		"baseColor": "zinc",
+		"cssVariables": true,
+		"css": "../../tooling/tailwind/index.css"
+	},
+	"aliases": {
+		"lib": "@/libs",
+		"hooks": "@/hooks",
+		"ui": "@/components",
+		"utils": "@/libs/utils",
+		"components": "@/components"
+	},
+	"registries": {},
+	"menuColor": "default",
+	"menuAccent": "subtle",
+	"iconLibrary": "tabler"
+}

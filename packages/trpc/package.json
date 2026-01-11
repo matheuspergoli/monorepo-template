@@ -1,0 +1,43 @@
+{
+	"name": "@repo/trpc",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/root.d.ts",
+			"import": "./src/root.ts"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"import": "./src/client.ts"
+		},
+		"./context": {
+			"types": "./dist/context.d.ts",
+			"import": "./src/context.ts"
+		},
+		"./adapters/*": {
+			"types": "./dist/adapters/*.d.ts",
+			"import": "./src/adapters/*.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist .cache .turbo node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"dependencies": {
+		"@repo/auth": "workspace:*",
+		"@repo/db": "workspace:*",
+		"@trpc/client": "^11.8.1",
+		"@trpc/server": "^11.8.1",
+		"superjson": "^2.2.6",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:*",
+		"typescript": "^5.9.3"
+	}
+}

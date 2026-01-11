@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schema.railpack.com",
+	"provider": "node",
+	"packages": {
+		"node": "22",
+		"bun": "latest"
+	},
+	"steps": {
+		"install": {
+			"inputs": [
+				{
+					"local": true,
+					"include": [".", "pnpm-workspace.yaml", "pnpm-lock.yaml"]
+				}
+			],
+			"caches": ["pnpm-store"],
+			"commands": ["corepack enable && pnpm install"]
+		},
+		"build": {
+			"inputs": [{ "step": "install", "include": ["."] }],
+			"caches": ["pnpm-store"],
+			"commands": [
+				"PATH:node_modules/.bin",
+				"corepack enable && pnpm --filter @repo/auth build"
+			]
+		}
+	},
+	"caches": {
+		"pnpm-store": {
+			"directory": "/root/.local/share/pnpm/store",
+			"type": "shared"
+		}
+	},
+	"deploy": {
+		"startCommand": "bun ./apps/auth/dist/index.js",
+		"paths": ["node_modules/.bin"]
+	}
+}

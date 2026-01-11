@@ -1,0 +1,43 @@
+{
+	"name": "@repo/db",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./src/index.ts"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"import": "./src/client.ts"
+		},
+		"./schema": {
+			"types": "./dist/schema.d.ts",
+			"import": "./src/schema.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist .cache .turbo node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio",
+		"db:generate": "drizzle-kit generate",
+		"db:reset": "rm -rf .cache db.sqlite ./src/migrations && pnpm db:push"
+	},
+	"dependencies": {
+		"@libsql/client": "^0.17.0",
+		"drizzle-orm": "^0.45.1",
+		"ioredis": "^5.9.1",
+		"unstorage": "^1.17.3"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:*",
+		"@types/node": "^25.0.6",
+		"drizzle-kit": "^0.31.8",
+		"typescript": "^5.9.3"
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"name": "@repo/auth",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		"./cookie": {
+			"types": "./dist/cookie.d.ts",
+			"import": "./src/cookie.ts"
+		},
+		"./issuer": {
+			"types": "./dist/issuer.d.ts",
+			"import": "./src/issuer.ts"
+		},
+		"./select": {
+			"types": "./dist/select.d.ts",
+			"import": "./src/select.ts"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"import": "./src/client.ts"
+		},
+		"./subjects": {
+			"types": "./dist/subjects.d.ts",
+			"import": "./src/subjects.ts"
+		},
+		"./storages/*": {
+			"types": "./dist/storages/*.d.ts",
+			"import": "./src/storages/*.ts"
+		},
+		"./providers/*": {
+			"types": "./dist/providers/*.d.ts",
+			"import": "./src/providers/*.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"clean": "rm -rf dist .cache .turbo node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"dependencies": {
+		"@draftlab/auth": "^0.15.0",
+		"zod": "^4.3.5"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:*",
+		"typescript": "^5.9.3"
+	}
+}
