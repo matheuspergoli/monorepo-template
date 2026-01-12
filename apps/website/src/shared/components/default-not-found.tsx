@@ -9,9 +9,7 @@ export const DefaultNotFound = ({ children }: { children?: ReactNode }) => (
 		</div>
 		<p className="flex flex-wrap items-center gap-2">
 			<Button onClick={() => window.history.back()}>Voltar</Button>
-			<Button>
-				<Link to="/">Tentar novamente</Link>
-			</Button>
+			<Button render={<Link to="/" />}>Tentar novamente</Button>
 		</p>
 	</div>
 )

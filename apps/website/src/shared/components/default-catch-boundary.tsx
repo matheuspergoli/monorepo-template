@@ -49,7 +49,7 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 
 			<div className="mt-2 flex flex-wrap items-center justify-center gap-3">
 				<Button
-					className="flex items-center gap-2"
+					className="flex cursor-pointer items-center gap-2"
 					onClick={() => void router.invalidate()}
 					variant="default"
 				>
@@ -58,24 +58,26 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 				</Button>
 
 				{isRoot ? (
-					<Button className="flex items-center gap-2" variant="outline">
-						<Link to="/">
-							<IconHome className="h-4 w-4" />
-							<span>Página inicial</span>
-						</Link>
+					<Button
+						className="flex items-center gap-2"
+						variant="outline"
+						render={<Link to="/" />}
+					>
+						<IconHome className="h-4 w-4" />
+						<span>Página inicial</span>
 					</Button>
 				) : (
-					<Button className="flex items-center gap-2" variant="outline">
-						<Link
-							onClick={(e) => {
-								e.preventDefault()
-								window.history.back()
-							}}
-							to="/"
-						>
-							<IconArrowLeft className="h-4 w-4" />
-							<span>Voltar</span>
-						</Link>
+					<Button
+						className="flex items-center gap-2"
+						variant="outline"
+						render={<Link to="/" />}
+						onClick={(e) => {
+							e.preventDefault()
+							window.history.back()
+						}}
+					>
+						<IconArrowLeft className="h-4 w-4" />
+						<span>Voltar</span>
 					</Button>
 				)}
 			</div>
