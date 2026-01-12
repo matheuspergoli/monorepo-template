@@ -8,10 +8,6 @@
 			"types": "./dist/libs/*.d.ts",
 			"import": "./src/libs/*.ts"
 		},
-		"./hooks/*": {
-			"types": "./dist/hooks/*.d.ts",
-			"import": "./src/hooks/*.ts"
-		},
 		"./components/*": {
 			"types": "./dist/components/*.d.ts",
 			"import": "./src/components/*.tsx"
