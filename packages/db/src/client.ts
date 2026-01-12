@@ -22,7 +22,7 @@ const globalForDb = globalThis as unknown as {
 
 export const createDatabase = (config: DatabaseConfig) => {
 	const cacheConfig = (() => {
-		if (config.env.node_env === "production" && config.redis) {
+		if (config.env.node_env === "production") {
 			return new UnstorageDriverCache({
 				defaultTtl: 600,
 				strategy: "all",

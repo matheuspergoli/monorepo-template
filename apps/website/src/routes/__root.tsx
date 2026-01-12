@@ -43,7 +43,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 					{children}
 					<Toaster />
 					<TanStackRouterDevtools position="bottom-left" />
-					<ReactQueryDevtools buttonPosition="bottom-right" position="bottom" />
+					<ReactQueryDevtools buttonPosition="bottom-right" />
 				</ThemeProvider>
 				<Scripts />
 			</body>

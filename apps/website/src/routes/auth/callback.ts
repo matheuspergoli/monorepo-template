@@ -10,10 +10,13 @@ export const Route = createFileRoute("/auth/callback")({
 			GET: async ({ request }) => {
 				const url = new URL(request.url)
 				const code = url.searchParams.get("code")
+
 				if (!code) {
 					return Response.json({ error: "no_code" }, { status: 400 })
 				}
+
 				const exchanged = await auth.exchange(code, `${url.origin}/auth/callback`)
+
 				if (!exchanged.success) {
 					return Response.json(exchanged.error, { status: 400 })
 				}
