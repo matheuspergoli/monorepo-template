@@ -64,10 +64,9 @@ const setStoredColorMode = (mode: ColorMode) => {
 
 const updateColorModeClass = (colorMode: ColorMode) => {
 	const root = document.documentElement
-	root.classList.remove("light", "dark", "system")
+	root.classList.remove("light", "dark")
 	const resolved = colorMode === "system" ? getSystemColorMode() : colorMode
 	root.classList.add(resolved)
-	if (colorMode === "system") root.classList.add("system")
 }
 
 const updateThemeClass = (theme: ThemeName) => {
@@ -154,7 +153,6 @@ export const getThemeScript = () => {
 		const effectiveMode = validColorMode === "system" ? systemMode : validColorMode
 
 		document.documentElement.classList.add(effectiveMode)
-		if (validColorMode === "system") document.documentElement.classList.add("system")
 
 		const storedTheme = localStorage.getItem("app-theme") ?? "default"
 		const validTheme = isValidTheme(storedTheme) ? storedTheme : "default"
@@ -168,8 +166,10 @@ export const getThemeScript = () => {
 
 export const useTheme = () => {
 	const context = React.useContext(ThemeContext)
+
 	if (context === undefined) {
 		throw new Error("useTheme must be used within a ThemeProvider")
 	}
+
 	return context
 }
