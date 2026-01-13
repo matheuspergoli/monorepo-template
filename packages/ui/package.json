@@ -15,8 +15,8 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch",
+		"build": "tsc && tsc-alias",
+		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"ui-add": "pnpm dlx shadcn@latest add",
 		"clean": "rm -rf dist .cache .turbo node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
@@ -36,6 +36,7 @@
 		"@types/react": "^19.2.8",
 		"react": "^19.2.3",
 		"tailwindcss": "^4.1.18",
+		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
 }

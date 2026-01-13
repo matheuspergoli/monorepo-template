@@ -23,8 +23,8 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc",
-		"dev": "tsc --watch",
+		"build": "tsc && tsc-alias",
+		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"clean": "rm -rf dist .cache .turbo node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
@@ -38,6 +38,7 @@
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
+		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
 }
