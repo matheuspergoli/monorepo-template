@@ -27,8 +27,10 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 						stroke="currentColor"
 						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
+						role="img"
+						aria-labelledby="error-icon-title"
 					>
-						<title>image</title>
+						<title id="error-icon-title">Ícone de erro</title>
 						<path
 							d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
 							strokeLinecap="round"
@@ -53,7 +55,7 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 					onClick={() => void router.invalidate()}
 					variant="default"
 				>
-					<IconRefresh className="h-4 w-4" />
+					<IconRefresh className="h-4 w-4" aria-hidden="true" />
 					<span>Tentar novamente</span>
 				</Button>
 
@@ -63,7 +65,7 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 						variant="outline"
 						render={<Link to="/" />}
 					>
-						<IconHome className="h-4 w-4" />
+						<IconHome className="h-4 w-4" aria-hidden="true" />
 						<span>Página inicial</span>
 					</Button>
 				) : (
@@ -76,7 +78,7 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 							window.history.back()
 						}}
 					>
-						<IconArrowLeft className="h-4 w-4" />
+						<IconArrowLeft className="h-4 w-4" aria-hidden="true" />
 						<span>Voltar</span>
 					</Button>
 				)}

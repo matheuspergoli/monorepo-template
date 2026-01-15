@@ -1,9 +1,7 @@
 import { Toaster } from "@repo/ui/components/sonner"
 import { getThemeScript, ThemeProvider } from "@repo/ui/components/theming"
 import type { QueryClient } from "@tanstack/react-query"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router"
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"
 import type { ReactNode } from "react"
 import css from "@/styles/index.css?url"
 
@@ -21,6 +19,20 @@ export const Route = createRootRouteWithContext<{
 			},
 			{
 				title: "Monorepo Template"
+			},
+			{
+				name: "theme-color",
+				content: "#ffffff",
+				media: "(prefers-color-scheme: light)"
+			},
+			{
+				name: "theme-color",
+				content: "#0a0a0a",
+				media: "(prefers-color-scheme: dark)"
+			},
+			{
+				name: "color-scheme",
+				content: "light dark"
 			}
 		],
 		scripts: [{ children: getThemeScript() }],
@@ -42,8 +54,6 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 				<ThemeProvider>
 					{children}
 					<Toaster />
-					<TanStackRouterDevtools position="bottom-left" />
-					<ReactQueryDevtools buttonPosition="bottom-right" />
 				</ThemeProvider>
 				<Scripts />
 			</body>
