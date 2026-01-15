@@ -1,5 +1,5 @@
 import type { AppRouter } from "@repo/trpc"
-import { createTRPCClient, httpBatchStreamLink } from "@repo/trpc/client"
+import { createTRPCClient, httpBatchLink } from "@repo/trpc/client"
 import { createIsomorphicFn } from "@tanstack/react-start"
 import { getRequestHeaders } from "@tanstack/react-start/server"
 import SuperJSON from "superjson"
@@ -9,7 +9,7 @@ export const trpc = createIsomorphicFn()
 	.server(() => {
 		return createTRPCClient<AppRouter>({
 			links: [
-				httpBatchStreamLink({
+				httpBatchLink({
 					transformer: SuperJSON,
 					url: `${env.VITE_BACKEND_URL}/trpc`,
 					headers: () => {
@@ -30,7 +30,7 @@ export const trpc = createIsomorphicFn()
 	.client(() => {
 		return createTRPCClient<AppRouter>({
 			links: [
-				httpBatchStreamLink({
+				httpBatchLink({
 					transformer: SuperJSON,
 					url: `${env.VITE_BACKEND_URL}/trpc`,
 					headers() {
