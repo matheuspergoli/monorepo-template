@@ -3,13 +3,9 @@
 	"extends": "./base.json",
 	"compilerOptions": {
 		"noEmit": false,
-		"checkJs": true,
-		"incremental": true,
 		"declaration": true,
 		"declarationMap": true,
 		"emitDeclarationOnly": true,
-		"outDir": "${configDir}/dist",
-		"disableSourceOfProjectReferenceRedirect": true,
-		"tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json"
+		"outDir": "${configDir}/dist"
 	}
 }

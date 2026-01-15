@@ -16,6 +16,7 @@ export const getRouter = () => {
 		context: { queryClient },
 		defaultPreloadStaleTime: 0,
 		scrollRestorationBehavior: "smooth",
+		defaultHashScrollIntoView: { behavior: "smooth" },
 		defaultNotFoundComponent: () => <DefaultNotFound />,
 		defaultErrorComponent: (error) => <DefaultCatchBoundary {...error} />,
 		Wrap: ({ children }) => (

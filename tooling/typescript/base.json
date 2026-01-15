@@ -14,13 +14,17 @@
 		"moduleDetection": "force",
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
+		"disableSourceOfProjectReferenceRedirect": true,
+		"tsBuildInfoFile": "${configDir}/.typescript/tsbuildinfo.json",
 
 		"allowJs": true,
 		"erasableSyntaxOnly": true,
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
+		"incremental": true,
 
 		"strict": true,
+		"checkJs": true,
 		"strictNullChecks": true,
 		"noUnusedLocals": true,
 		"noImplicitAny": true,

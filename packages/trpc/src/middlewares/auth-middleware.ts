@@ -10,7 +10,8 @@ export const authMiddleware = middleware(async ({ ctx, next }) => {
 
 	if (!access) {
 		throw new TRPCError({
-			code: "UNAUTHORIZED"
+			code: "UNAUTHORIZED",
+			message: "Token de acesso não encontrado"
 		})
 	}
 
@@ -20,7 +21,8 @@ export const authMiddleware = middleware(async ({ ctx, next }) => {
 
 	if (!verified.success) {
 		throw new TRPCError({
-			code: "UNAUTHORIZED"
+			code: "UNAUTHORIZED",
+			message: "Verificação de usuário inválida"
 		})
 	}
 

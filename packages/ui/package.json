@@ -18,7 +18,7 @@
 		"build": "tsc && tsc-alias",
 		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"ui-add": "pnpm dlx shadcn@latest add",
-		"clean": "rm -rf dist .cache .turbo node_modules",
+		"clean": "rm -rf dist .typescript .turbo node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {

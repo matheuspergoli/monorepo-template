@@ -11,9 +11,11 @@
 			"**",
 			"!**/dist",
 			"!**/.dist",
+			"!**/.cache",
 			"!**/.turbo",
 			"!node_modules",
 			"!**/.tanstack",
+			"!**/.typescript",
 			"!**/routeTree.gen.ts"
 		]
 	},

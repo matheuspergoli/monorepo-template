@@ -5,7 +5,7 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": [".cache/tsbuildinfo.json", "public/**", "dist/**", ".dist/**"]
+			"outputs": [".typescript/tsbuildinfo.json", "public/**", "dist/**"]
 		},
 		"start": {
 			"cache": false,
@@ -23,25 +23,21 @@
 			"interactive": true
 		},
 		"typecheck": {
-			"cache": false,
-			"persistent": true,
-			"outputs": [".cache/tsbuildinfo.json"]
+			"dependsOn": ["^build"],
+			"outputs": [".typescript/tsbuildinfo.json"]
 		},
 		"db:push": {
-			"cache": false,
-			"interactive": true
+			"cache": false
 		},
 		"db:reset": {
-			"cache": false,
-			"interactive": true
+			"cache": false
 		},
 		"db:studio": {
 			"cache": false,
-			"interactive": true
+			"persistent": true
 		},
 		"db:generate": {
-			"cache": false,
-			"interactive": true
+			"cache": false
 		}
 	}
 }
