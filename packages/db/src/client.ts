@@ -1,10 +1,9 @@
 import { type Client, createClient } from "@libsql/client"
 import { drizzle } from "drizzle-orm/libsql"
-import { join } from "path"
 import fsDriver from "unstorage/drivers/fs"
 import redisDriver from "unstorage/drivers/redis"
 import { UnstorageDriverCache } from "./libs/cache"
-import { DEV_DATABASE_URL } from "./libs/path"
+import { DEV_CACHE_PATH, DEV_DATABASE_URL } from "./libs/path"
 import * as schema from "./schema"
 
 interface DatabaseConfig {
@@ -39,7 +38,7 @@ export const createDatabase = (config: DatabaseConfig) => {
 			strategy: "all",
 			namespace: "drizzle:dev",
 			driver: fsDriver({
-				base: join(process.cwd(), ".cache")
+				base: DEV_CACHE_PATH
 			})
 		})
 	})()
