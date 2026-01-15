@@ -11,11 +11,14 @@ Bun.serve({
 	async fetch(req: Request) {
 		const url = new URL(req.url)
 
+		const allowMethods = ["GET", "POST", "OPTIONS"]
+		const allowHeaders = ["Content-Type", "Authorization", "trpc-accept", "x-trpc-source"]
+
 		const headers = {
+			"Access-Control-Allow-Credentials": "true",
 			"Access-Control-Allow-Origin": env.FRONTEND_URL,
-			"Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-			"Access-Control-Allow-Headers": "Content-Type, Authorization",
-			"Access-Control-Allow-Credentials": "true"
+			"Access-Control-Allow-Methods": allowMethods.join(", "),
+			"Access-Control-Allow-Headers": allowHeaders.join(", ")
 		}
 
 		if (req.method === "OPTIONS") {

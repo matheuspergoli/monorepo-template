@@ -14,7 +14,7 @@
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@t3-oss/env-core": "^0.13.10",
-		"ioredis": "^5.9.1",
+		"ioredis": "^5.9.2",
 		"unstorage": "^1.17.4",
 		"zod": "^4.3.5"
 	},
