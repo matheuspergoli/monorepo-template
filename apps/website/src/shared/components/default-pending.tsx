@@ -9,7 +9,7 @@ import { Spinner } from "@repo/ui/components/spinner"
 
 export const DefaultPending = () => {
 	return (
-		<Empty className="flex h-screen w-screen items-center justify-center">
+		<Empty className="flex h-screen w-screen items-center justify-center bg-background">
 			<EmptyHeader>
 				<EmptyMedia variant="icon">
 					<Spinner />
