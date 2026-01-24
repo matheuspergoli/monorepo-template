@@ -12,12 +12,12 @@
 *.hbs linguist-detectable=false
 *.handlebars linguist-detectable=false
 
+*.md linguist-detectable=false
 *.svg linguist-detectable=false
-*.json linguist-detectable=false
-*.yaml linguist-detectable=false
 *.yml linguist-detectable=false
 *.env linguist-detectable=false
-*.sample linguist-detectable=false
-*.md linguist-detectable=false
 *.mdx linguist-detectable=false
 *.txt linguist-detectable=false
+*.json linguist-detectable=false
+*.yaml linguist-detectable=false
+*.sample linguist-detectable=false

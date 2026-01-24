@@ -2,17 +2,19 @@ import { trpcServer } from "@hono/trpc-server"
 import { appRouter } from "@repo/trpc"
 import { createTRPCContext } from "@repo/trpc/context"
 import { Hono } from "hono"
+import { contextStorage } from "hono/context-storage"
 import { cors } from "hono/cors"
 import { poweredBy } from "hono/powered-by"
 import { secureHeaders } from "hono/secure-headers"
 import { env } from "@/environment/env"
-import { auth } from "./libs/auth"
+import { auth } from "@/libs/auth"
 
 const app = new Hono()
 
 app.use(
 	"*",
 	secureHeaders(),
+	contextStorage(),
 	poweredBy({ serverName: "Monorepo Template" }),
 	cors({ credentials: true, origin: env.FRONTEND_URL })
 )
