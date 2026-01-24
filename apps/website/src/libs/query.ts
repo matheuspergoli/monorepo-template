@@ -7,6 +7,8 @@ const makeQueryClient = () => {
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
+				retry: false,
+				refetchOnMount: false,
 				refetchOnWindowFocus: false,
 				staleTime: Number.POSITIVE_INFINITY
 			},
@@ -14,9 +16,9 @@ const makeQueryClient = () => {
 			hydrate: { deserializeData: SuperJSON.deserialize }
 		},
 		queryCache: new QueryCache({
-			onError: (_error, query) => {
+			onError: (error, query) => {
 				if (query.state.data !== undefined) {
-					toast.error("Algo deu errado", {
+					toast.error(error.message, {
 						action: {
 							label: "Tentar novamente",
 							onClick: () => {
@@ -40,8 +42,7 @@ const makeQueryClient = () => {
 				})
 			},
 			onError: (error) => {
-				console.log(error)
-				toast.error("Algo deu errado", {
+				toast.error(error.message, {
 					action: {
 						label: "Tentar novamente",
 						onClick: () => {

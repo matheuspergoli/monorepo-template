@@ -1,0 +1,23 @@
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.mts linguist-language=TypeScript
+*.cts linguist-language=TypeScript
+
+*.js linguist-detectable=false
+*.mjs linguist-detectable=false
+*.cjs linguist-detectable=false
+
+*.css linguist-detectable=false
+
+*.hbs linguist-detectable=false
+*.handlebars linguist-detectable=false
+
+*.svg linguist-detectable=false
+*.json linguist-detectable=false
+*.yaml linguist-detectable=false
+*.yml linguist-detectable=false
+*.env linguist-detectable=false
+*.sample linguist-detectable=false
+*.md linguist-detectable=false
+*.mdx linguist-detectable=false
+*.txt linguist-detectable=false

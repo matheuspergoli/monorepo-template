@@ -5,6 +5,7 @@ import { routeTree } from "@/routeTree.gen"
 import { DefaultCatchBoundary } from "@/shared/components/default-catch-boundary"
 import { DefaultNotFound } from "@/shared/components/default-not-found"
 import { getQueryClient } from "./libs/query"
+import { DefaultPending } from "./shared/components/default-pending"
 
 export const getRouter = () => {
 	const queryClient = getQueryClient()
@@ -17,6 +18,7 @@ export const getRouter = () => {
 		defaultPreloadStaleTime: 0,
 		scrollRestorationBehavior: "smooth",
 		defaultHashScrollIntoView: { behavior: "smooth" },
+		defaultPendingComponent: () => <DefaultPending />,
 		defaultNotFoundComponent: () => <DefaultNotFound />,
 		defaultErrorComponent: (error) => <DefaultCatchBoundary {...error} />,
 		Wrap: ({ children }) => (

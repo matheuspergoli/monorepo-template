@@ -121,10 +121,21 @@
 	* {
 		@apply border-border outline-ring/50;
 	}
+
 	body {
 		@apply font-sans bg-background text-foreground;
 	}
+
 	html {
 		@apply font-sans;
+	}
+}
+
+@utility no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
 	}
 }

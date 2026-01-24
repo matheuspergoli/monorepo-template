@@ -16,9 +16,9 @@
 			"types": "./dist/context.d.ts",
 			"import": "./src/context.ts"
 		},
-		"./adapters/*": {
-			"types": "./dist/adapters/*.d.ts",
-			"import": "./src/adapters/*.ts"
+		"./links/*": {
+			"types": "./dist/links/*.d.ts",
+			"import": "./src/links/*.ts"
 		}
 	},
 	"license": "MIT",
@@ -31,10 +31,11 @@
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
+		"@repo/result": "workspace:*",
 		"@trpc/client": "^11.8.1",
 		"@trpc/server": "^11.8.1",
 		"superjson": "^2.2.6",
-		"zod": "^4.3.5"
+		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",

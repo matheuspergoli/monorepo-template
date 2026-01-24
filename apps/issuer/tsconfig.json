@@ -5,7 +5,7 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"types": ["@repo/tsconfig/reset"]
+		"types": ["@repo/tsconfig/reset", "node"]
 	},
 	"include": ["src"]
 }
