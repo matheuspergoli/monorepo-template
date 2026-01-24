@@ -1,4 +1,4 @@
-import { join } from "path"
+import { join } from "node:path"
 import fsDriver from "unstorage/drivers/fs"
 import redisDriver from "unstorage/drivers/redis"
 import { env } from "@/env"

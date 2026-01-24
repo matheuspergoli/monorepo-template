@@ -1,6 +1,6 @@
-import { makeAuthClient } from "@repo/auth/client"
+import { createAuthClient } from "@repo/auth/client"
 import { env } from "@/environment/env"
 
-export const auth = makeAuthClient({
+export const auth = createAuthClient({
 	issuer: env.AUTH_ISSUER_URL
 })

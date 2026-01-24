@@ -6,7 +6,7 @@ interface AuthClientConfig {
 	clientID?: ClientInput["clientID"]
 }
 
-export const makeAuthClient = (config: AuthClientConfig) => {
+export const createAuthClient = (config: AuthClientConfig) => {
 	return createClient({
 		fetch: config.fetch,
 		issuer: config.issuer,
@@ -14,4 +14,4 @@ export const makeAuthClient = (config: AuthClientConfig) => {
 	})
 }
 
-export type AuthClient = ReturnType<typeof makeAuthClient>
+export type AuthClient = ReturnType<typeof createAuthClient>

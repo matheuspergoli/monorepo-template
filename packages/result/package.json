@@ -17,7 +17,7 @@
 	"scripts": {
 		"build": "tsc && tsc-alias",
 		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
-		"clean": "rm -rf dist .cache .turbo node_modules",
+		"clean": "rm -rf .turbo .typescript dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"devDependencies": {

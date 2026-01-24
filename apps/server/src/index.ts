@@ -10,7 +10,12 @@ import { auth } from "./libs/auth"
 
 const app = new Hono()
 
-app.use("*", cors(), secureHeaders(), poweredBy({ serverName: "Monorepo Template" }))
+app.use(
+	"*",
+	secureHeaders(),
+	poweredBy({ serverName: "Monorepo Template" }),
+	cors({ credentials: true, origin: env.FRONTEND_URL })
+)
 
 app.use(
 	"/trpc/*",

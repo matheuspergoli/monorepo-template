@@ -1,4 +1,4 @@
-import { makeAuthClient } from "@repo/auth/client"
+import { createAuthClient } from "@repo/auth/client"
 import { getAuthCookieOptions } from "@repo/auth/cookie"
 import { subjects } from "@repo/auth/subjects"
 import { redirect } from "@tanstack/react-router"
@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-start/server"
 import { env } from "@/environment/env"
 
-export const auth = makeAuthClient({
+export const auth = createAuthClient({
 	issuer: env.VITE_AUTH_ISSUER_URL
 })
 
