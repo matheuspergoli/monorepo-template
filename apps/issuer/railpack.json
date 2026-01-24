@@ -21,7 +21,7 @@
 			"caches": ["pnpm-store"],
 			"commands": [
 				"PATH:node_modules/.bin",
-				"corepack enable && pnpm --filter @repo/auth build"
+				"corepack enable && pnpm --filter @repo/issuer build"
 			]
 		}
 	},
@@ -32,7 +32,7 @@
 		}
 	},
 	"deploy": {
-		"startCommand": "bun ./apps/auth/dist/index.js",
+		"startCommand": "bun ./apps/issuer/dist/index.js",
 		"paths": ["node_modules/.bin"]
 	}
 }
