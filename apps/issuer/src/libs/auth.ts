@@ -3,7 +3,7 @@ import { PasswordProvider, PasswordUI } from "@repo/auth/providers/password"
 import { Select } from "@repo/auth/select"
 import { UnStorage } from "@repo/auth/storages/unstorage"
 import { subjects } from "@repo/auth/subjects"
-import { getDriver } from "@/storage"
+import { getDriver } from "@/libs/storage"
 
 const driver = getDriver()
 

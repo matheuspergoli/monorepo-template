@@ -13,6 +13,7 @@
 			"!**/.dist",
 			"!**/.cache",
 			"!**/.turbo",
+			"!**/.output",
 			"!node_modules",
 			"!**/.tanstack",
 			"!**/.typescript",

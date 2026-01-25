@@ -249,5 +249,6 @@ eslint.config.js
 **/.typescript
 
 # tanstack 
+**/.output
 **/.tanstack
 **/routeTree.gen.ts

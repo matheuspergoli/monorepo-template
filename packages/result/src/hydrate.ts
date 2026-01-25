@@ -8,7 +8,9 @@ export type Serialized<T> = T extends (...args: unknown[]) => unknown
 					? never
 					: T[K] extends (...args: unknown[]) => unknown
 						? never
-						: K]: Serialized<T[K]>
+						: T[K] extends symbol
+							? never
+							: K]: Serialized<T[K]>
 			}
 		: T
 

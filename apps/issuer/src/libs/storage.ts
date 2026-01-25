@@ -1,7 +1,7 @@
 import { join } from "node:path"
 import fsDriver from "unstorage/drivers/fs"
 import redisDriver from "unstorage/drivers/redis"
-import { env } from "@/env"
+import { env } from "@/environment/env"
 
 export const getDriver = () => {
 	if (env.NODE_ENV === "production") {

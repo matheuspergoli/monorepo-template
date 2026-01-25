@@ -3,7 +3,7 @@ import { contextStorage } from "hono/context-storage"
 import { cors } from "hono/cors"
 import { poweredBy } from "hono/powered-by"
 import { secureHeaders } from "hono/secure-headers"
-import { auth } from "@/auth"
+import { auth } from "@/libs/auth"
 
 const app = new Hono()
 
