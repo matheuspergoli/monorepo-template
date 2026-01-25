@@ -1,6 +1,7 @@
 {
 	"$schema": "https://turborepo.com/schema.json",
 	"ui": "tui",
+	"globalEnv": ["VITE_BACKEND_URL", "VITE_AUTH_ISSUER_URL"],
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
