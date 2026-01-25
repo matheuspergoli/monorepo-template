@@ -10,7 +10,6 @@ export default defineConfig({
 		port: 5000
 	},
 	plugins: [
-		nitro(),
 		tailwindcss(),
 		tsConfigPaths(),
 		tanstackStart({
@@ -19,6 +18,7 @@ export default defineConfig({
 				routeToken: "layout"
 			}
 		}),
+		nitro(),
 		viteReact({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"]
