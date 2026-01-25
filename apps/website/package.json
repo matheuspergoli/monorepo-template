@@ -7,7 +7,6 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"start": "node .output/server/index.mjs",
 		"clean": "rm -rf .turbo .typescript dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
