@@ -18,7 +18,7 @@ export default defineConfig({
 				routeToken: "layout"
 			}
 		}),
-		nitro({ output: { dir: "dist" } }),
+		nitro(),
 		viteReact({
 			babel: {
 				plugins: ["babel-plugin-react-compiler"]

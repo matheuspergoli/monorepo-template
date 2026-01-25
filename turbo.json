@@ -6,7 +6,12 @@
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": [".typescript/tsbuildinfo.json", "public/**", "dist/**"]
+			"outputs": [
+				"dist/**",
+				"public/**",
+				".output/**",
+				".typescript/tsbuildinfo.json"
+			]
 		},
 		"start": {
 			"cache": false,
