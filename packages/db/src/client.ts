@@ -17,13 +17,18 @@ interface DatabaseConfig {
 
 const globalForDb = globalThis as unknown as {
 	client: Client | undefined
+	db: ReturnType<typeof drizzle> | undefined
 }
 
 export const createDatabase = (config: DatabaseConfig) => {
+	if (globalForDb.db) {
+		return globalForDb.db
+	}
+
 	const cacheConfig = (() => {
 		if (config.env.node_env === "production") {
 			return new UnstorageDriverCache({
-				defaultTtl: 600,
+				defaultTtl: 1800,
 				strategy: "all",
 				namespace: "drizzle:prod",
 				driver: redisDriver({
@@ -34,7 +39,7 @@ export const createDatabase = (config: DatabaseConfig) => {
 		}
 
 		return new UnstorageDriverCache({
-			defaultTtl: 300,
+			defaultTtl: 900,
 			strategy: "all",
 			namespace: "drizzle:dev",
 			driver: fsDriver({
@@ -55,10 +60,10 @@ export const createDatabase = (config: DatabaseConfig) => {
 	})()
 
 	const client = globalForDb.client ?? createClient(dbConfig)
+	globalForDb.client = client
 
-	if (config.env.node_env === "production") {
-		globalForDb.client = client
-	}
+	const db = drizzle(client, { schema, cache: cacheConfig, casing: "snake_case" })
+	globalForDb.db = db
 
-	return drizzle(client, { schema, cache: cacheConfig })
+	return db
 }

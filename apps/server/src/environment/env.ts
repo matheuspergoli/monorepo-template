@@ -7,7 +7,8 @@ export const env = createEnv({
 		FRONTEND_URL: z.string(),
 		DATABASE_URL: z.string(),
 		AUTH_ISSUER_URL: z.string(),
-		DATABASE_AUTH_TOKEN: z.string()
+		DATABASE_AUTH_TOKEN: z.string(),
+		PORT: z.coerce.number().positive().default(4000)
 	},
 	shared: {
 		NODE_ENV: z.enum(["development", "production", "test"])

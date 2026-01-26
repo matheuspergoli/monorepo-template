@@ -3,7 +3,8 @@ import { z } from "zod"
 
 export const env = createEnv({
 	server: {
-		REDIS_URL: z.string()
+		REDIS_URL: z.string(),
+		PORT: z.coerce.number().positive().default(3000)
 	},
 	shared: {
 		NODE_ENV: z.enum(["development", "production", "test"])

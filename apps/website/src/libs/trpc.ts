@@ -16,7 +16,7 @@ export const trpc = createIsomorphicFn()
 					url: `${env.VITE_BACKEND_URL}/trpc`,
 					headers: () => {
 						const headers = new Headers(getRequestHeaders())
-						headers.set("x-trpc-source", "tanstack-start-server")
+						headers.set("x-trpc-source", "monorepo-app-server")
 						return headers
 					},
 					fetch(url, options) {
@@ -38,7 +38,7 @@ export const trpc = createIsomorphicFn()
 					url: `${env.VITE_BACKEND_URL}/trpc`,
 					headers() {
 						const headers = new Headers()
-						headers.set("x-trpc-source", "tanstack-start-client")
+						headers.set("x-trpc-source", "monorepo-app-client")
 						return headers
 					},
 					fetch(url, options) {

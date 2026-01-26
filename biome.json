@@ -6,11 +6,11 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignoreUnknown": false,
+		"ignoreUnknown": true,
 		"includes": [
 			"**",
 			"!**/dist",
-			"!**/.dist",
+			"!**/.auth",
 			"!**/.cache",
 			"!**/.turbo",
 			"!**/.output",
@@ -36,7 +36,7 @@
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"useExhaustiveDependencies": "info"
+				"useExhaustiveDependencies": "warn"
 			},
 			"nursery": {
 				"noFloatingPromises": "error",

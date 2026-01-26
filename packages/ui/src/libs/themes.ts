@@ -37,7 +37,7 @@ export const baseThemes = [
 	},
 	{
 		name: "vintage-paper",
-		label: "Vintange Paper"
+		label: "Vintage Paper"
 	}
 ] as const
 

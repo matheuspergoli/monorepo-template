@@ -1,11 +1,18 @@
 import { config, middleware } from "@/trpc"
 
-export const timingMiddleware = middleware(async ({ next, path }) => {
+export const timingMiddleware = middleware(async ({ next, path, signal }) => {
 	const start = Date.now()
 
 	if (config.isDev) {
 		const waitMs = Math.floor(Math.random() * 900) + 100
-		await new Promise((resolve) => setTimeout(resolve, waitMs))
+		await new Promise((resolve, reject) => {
+			const timeoutId = setTimeout(resolve, waitMs)
+
+			signal?.addEventListener("abort", () => {
+				clearTimeout(timeoutId)
+				reject(new Error("Request aborted"))
+			})
+		})
 	}
 
 	const result = await next()

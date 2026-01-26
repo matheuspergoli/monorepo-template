@@ -6,3 +6,5 @@ export const subjects = createSubjects({
 		email: z.email()
 	})
 })
+
+export type { InferSubjectProperties } from "@draftlab/auth/subject"

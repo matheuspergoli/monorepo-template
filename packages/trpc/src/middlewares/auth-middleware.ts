@@ -3,10 +3,13 @@ import { subjects } from "@repo/auth/subjects"
 import { TRPCError } from "@trpc/server"
 import { middleware } from "@/trpc"
 
+const prodCookieOptions = getAuthCookieOptions({ secure: true })
+const devCookieOptions = getAuthCookieOptions({ secure: false })
+
 export const authMiddleware = middleware(async ({ ctx, next }) => {
 	const access = ctx.cookies.get("access_token")
 	const refresh = ctx.cookies.get("refresh_token")
-	const options = getAuthCookieOptions({ secure: ctx.env.node_env === "production" })
+	const options = ctx.env.node_env === "production" ? prodCookieOptions : devCookieOptions
 
 	if (!access) {
 		throw new TRPCError({

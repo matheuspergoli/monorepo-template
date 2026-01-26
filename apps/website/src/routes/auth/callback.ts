@@ -2,7 +2,9 @@ import { getAuthCookieOptions } from "@repo/auth/cookie"
 import { createFileRoute, redirect } from "@tanstack/react-router"
 import { setCookie } from "@tanstack/react-start/server"
 import { env } from "@/environment/env"
-import { auth } from "@/libs/auth"
+import { ACCESS_TOKEN_NAME, auth, REFRESH_TOKEN_NAME } from "@/libs/auth"
+
+const cookieOptions = getAuthCookieOptions({ secure: env.NODE_ENV === "production" })
 
 export const Route = createFileRoute("/auth/callback")({
 	server: {
@@ -21,9 +23,8 @@ export const Route = createFileRoute("/auth/callback")({
 					return Response.json(exchanged.error, { status: 400 })
 				}
 
-				const cookieOptions = getAuthCookieOptions({ secure: env.NODE_ENV === "production" })
-				setCookie("access_token", exchanged.data.access, cookieOptions)
-				setCookie("refresh_token", exchanged.data.refresh, cookieOptions)
+				setCookie(ACCESS_TOKEN_NAME, exchanged.data.access, cookieOptions)
+				setCookie(REFRESH_TOKEN_NAME, exchanged.data.refresh, cookieOptions)
 
 				throw redirect({ to: "/" })
 			}

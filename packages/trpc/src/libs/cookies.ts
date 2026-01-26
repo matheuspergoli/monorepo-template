@@ -1,10 +1,10 @@
 export interface CookieOptions {
-	domain?: string
 	path?: string
 	expires?: Date
+	domain?: string
 	maxAge?: number
-	httpOnly?: boolean
 	secure?: boolean
+	httpOnly?: boolean
 	sameSite?: "lax" | "strict" | "none"
 }
 
@@ -48,12 +48,12 @@ const serializeCookie = (name: string, value: string, options: CookieOptions) =>
 
 	const parts = [`${name}=${encodeURIComponent(value)}`]
 
-	if (options.domain) parts.push(`Domain=${options.domain}`)
-	if (options.path) parts.push(`Path=${options.path}`)
-	if (options.expires) parts.push(`Expires=${options.expires.toUTCString()}`)
-	if (options.maxAge !== undefined) parts.push(`Max-Age=${options.maxAge}`)
-	if (options.httpOnly) parts.push("HttpOnly")
 	if (options.secure) parts.push("Secure")
+	if (options.httpOnly) parts.push("HttpOnly")
+	if (options.path) parts.push(`Path=${options.path}`)
+	if (options.domain) parts.push(`Domain=${options.domain}`)
+	if (options.maxAge !== undefined) parts.push(`Max-Age=${options.maxAge}`)
+	if (options.expires) parts.push(`Expires=${options.expires.toUTCString()}`)
 	if (options.sameSite) parts.push(`SameSite=${capitalize(options.sameSite)}`)
 
 	return parts.join("; ")
@@ -88,8 +88,8 @@ export class Cookies {
 	delete(name: string, options: Pick<CookieOptions, "path" | "domain"> = {}): void {
 		this.set(name, "", {
 			...options,
-			expires: new Date(0),
-			maxAge: 0
+			maxAge: 0,
+			expires: new Date(0)
 		})
 	}
 
