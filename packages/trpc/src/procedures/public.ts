@@ -1,4 +1,4 @@
-import { timingMiddleware } from "@/middlewares/timing-middleware"
+import { loggingMiddleware } from "@/middlewares/logging-middleware"
 import { procedure } from "@/trpc"
 
-export const publicProcedure = procedure.use(timingMiddleware)
+export const publicProcedure = procedure.use(loggingMiddleware)

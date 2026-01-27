@@ -1,4 +1,5 @@
 import { trpcServer } from "@hono/trpc-server"
+import { getLogger } from "@repo/logger"
 import { appRouter } from "@repo/trpc"
 import { createTRPCContext } from "@repo/trpc/context"
 import { Hono } from "hono"
@@ -10,6 +11,12 @@ import { secureHeaders } from "hono/secure-headers"
 import { z } from "zod"
 import { env } from "@/environment/env"
 import { auth } from "@/libs/auth"
+
+getLogger({
+	version: "1.0.0",
+	service: "server",
+	node_env: env.NODE_ENV
+})
 
 const app = new Hono()
 
