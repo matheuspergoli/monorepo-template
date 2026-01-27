@@ -7,6 +7,7 @@ import type {
 	ErrorContext,
 	Logger,
 	LoggerConfig,
+	LogLevel,
 	RequestContext,
 	WideEvent
 } from "./types"
@@ -77,7 +78,7 @@ const createLogger = (config: LoggerConfig): Logger => {
 	const pinoLogger = pino(isProd ? configProd : configDev)
 
 	const log = (
-		level: "info" | "error",
+		level: LogLevel,
 		partialEvent: Omit<WideEvent, keyof EnvironmentContext>
 	): void => {
 		const currentContext = asyncLocalStorage.getStore() || {}
@@ -92,16 +93,35 @@ const createLogger = (config: LoggerConfig): Logger => {
 			return
 		}
 
-		if (level === "error") {
-			pinoLogger.error(event)
-		} else {
-			pinoLogger.info(event)
+		switch (level) {
+			case "trace":
+				pinoLogger.trace(event)
+				break
+			case "debug":
+				pinoLogger.debug(event)
+				break
+			case "info":
+				pinoLogger.info(event)
+				break
+			case "warn":
+				pinoLogger.warn(event)
+				break
+			case "error":
+				pinoLogger.error(event)
+				break
+			case "fatal":
+				pinoLogger.fatal(event)
+				break
 		}
 	}
 
 	return {
 		info: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("info", event),
+		warn: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("warn", event),
+		trace: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("trace", event),
+		debug: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("debug", event),
 		error: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("error", event),
+		fatal: (event: Omit<WideEvent, keyof EnvironmentContext>) => log("fatal", event),
 
 		addContext: (context: BusinessContext) => {
 			const store = asyncLocalStorage.getStore()

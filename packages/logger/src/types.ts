@@ -1,4 +1,4 @@
-export type LogLevel = "info" | "error"
+export type LogLevel = "trace" | "debug" | "info" | "warn" | "error" | "fatal"
 
 export interface EnvironmentContext {
 	service: string
@@ -52,7 +52,11 @@ export interface LoggerConfig {
 
 export interface Logger {
 	info(event: Omit<WideEvent, keyof EnvironmentContext>): void
+	warn(event: Omit<WideEvent, keyof EnvironmentContext>): void
+	trace(event: Omit<WideEvent, keyof EnvironmentContext>): void
+	debug(event: Omit<WideEvent, keyof EnvironmentContext>): void
 	error(event: Omit<WideEvent, keyof EnvironmentContext>): void
+	fatal(event: Omit<WideEvent, keyof EnvironmentContext>): void
 	addContext(context: BusinessContext): void
 	isolate<T>(options: { context?: BusinessContext; fn: () => T | Promise<T> }): Promise<T>
 }
