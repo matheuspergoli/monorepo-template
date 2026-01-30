@@ -20,6 +20,8 @@ const globalForDb = globalThis as unknown as {
 	db: ReturnType<typeof drizzle> | undefined
 }
 
+export type Database = ReturnType<typeof createDatabase>
+
 export const createDatabase = (config: DatabaseConfig) => {
 	if (globalForDb.db) {
 		return globalForDb.db

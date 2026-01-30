@@ -14,8 +14,8 @@ export const authMiddleware = middleware(async ({ ctx, next }) => {
 	const refresh = ctx.cookies.get("refresh_token")
 	const options = ctx.env.node_env === "production" ? prodCookieOptions : devCookieOptions
 
-	const forwardedFor = ctx.request.headers.get("x-forwarded-for")
 	const realIp = ctx.request.headers.get("x-real-ip")
+	const forwardedFor = ctx.request.headers.get("x-forwarded-for")
 	const clientIp = forwardedFor || realIp || "unknown"
 	const userAgent = ctx.request.headers.get("user-agent") || "unknown"
 

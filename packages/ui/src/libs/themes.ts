@@ -1,23 +1,23 @@
 export const baseThemes = [
 	{
+		name: "claude",
+		label: "Claude"
+	},
+	{
 		name: "default",
 		label: "Standard"
-	},
-	{
-		name: "cosmic-night",
-		label: "Cosmic Night"
-	},
-	{
-		name: "perpetuity",
-		label: "Perpetuity"
 	},
 	{
 		name: "caffeine",
 		label: "Caffeine"
 	},
 	{
-		name: "modern-minimal",
-		label: "Modern Minimal"
+		name: "perpetuity",
+		label: "Perpetuity"
+	},
+	{
+		name: "cosmic-night",
+		label: "Cosmic Night"
 	},
 	{
 		name: "retro-arcade",
@@ -28,16 +28,16 @@ export const baseThemes = [
 		label: "Kodama Grove"
 	},
 	{
-		name: "claude",
-		label: "Claude"
-	},
-	{
 		name: "claymorphism",
 		label: "Claymorphism"
 	},
 	{
 		name: "vintage-paper",
 		label: "Vintage Paper"
+	},
+	{
+		name: "modern-minimal",
+		label: "Modern Minimal"
 	}
 ] as const
 

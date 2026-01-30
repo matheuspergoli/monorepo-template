@@ -9,8 +9,8 @@ export const loggingMiddleware = middleware(async ({ next, path, type, ctx }) =>
 			const startTime = Date.now()
 			const requestContext = initializeRequestContext("TRPC", path)
 
-			const forwardedFor = ctx.request.headers.get("x-forwarded-for")
 			const realIp = ctx.request.headers.get("x-real-ip")
+			const forwardedFor = ctx.request.headers.get("x-forwarded-for")
 			const clientIp = forwardedFor || realIp || "unknown"
 			const userAgent = ctx.request.headers.get("user-agent") || "unknown"
 

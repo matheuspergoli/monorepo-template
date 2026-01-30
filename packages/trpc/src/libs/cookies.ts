@@ -68,24 +68,24 @@ export class Cookies {
 		this.requestCookies = parseRequestCookies(requestHeaders.get("cookie"))
 	}
 
-	get(name: string): string | undefined {
+	get(name: string) {
 		return this.requestCookies.get(name)
 	}
 
-	has(name: string): boolean {
+	has(name: string) {
 		return this.requestCookies.has(name)
 	}
 
-	getAll(): ReadonlyMap<string, string> {
+	getAll() {
 		return this.requestCookies
 	}
 
-	set(name: string, value: string, options: CookieOptions = {}): void {
+	set(name: string, value: string, options: CookieOptions = {}) {
 		const serialized = serializeCookie(name, value, options)
 		this.responseHeaders.append("Set-Cookie", serialized)
 	}
 
-	delete(name: string, options: Pick<CookieOptions, "path" | "domain"> = {}): void {
+	delete(name: string, options: Pick<CookieOptions, "path" | "domain"> = {}) {
 		this.set(name, "", {
 			...options,
 			maxAge: 0,
@@ -93,13 +93,13 @@ export class Cookies {
 		})
 	}
 
-	applyTo(headers: Headers): void {
+	applyTo(headers: Headers) {
 		for (const [key, value] of this.responseHeaders) {
 			headers.append(key, value)
 		}
 	}
 
-	toHeaders(): Headers {
+	toHeaders() {
 		return new Headers(this.responseHeaders)
 	}
 }

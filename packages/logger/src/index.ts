@@ -131,8 +131,8 @@ const createLogger = (config: LoggerConfig): Logger => {
 		},
 
 		isolate: async <T>(options: {
-			context?: BusinessContext
 			fn: () => T | Promise<T>
+			context?: BusinessContext
 		}): Promise<T> => {
 			const initialContext = options.context || {}
 			return asyncLocalStorage.run(initialContext, async () => {
