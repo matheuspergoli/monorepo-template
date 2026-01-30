@@ -1,0 +1,24 @@
+{
+	"name": "@repo/{{ name }}",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./src/index.ts"
+		}
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc && tsc-alias",
+		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
+		"clean": "rm -rf .turbo .typescript dist node_modules",
+		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:*",
+		"tsc-alias": "^1.8.16",
+		"typescript": "^5.9.3"
+	}
+}
