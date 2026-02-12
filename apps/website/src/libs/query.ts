@@ -1,6 +1,8 @@
+import type { AppRouter, TRPCClientErrorLike } from "@repo/trpc"
 import { toast } from "@repo/ui/components/sonner"
 import type { Query } from "@tanstack/react-query"
 import { MutationCache, matchQuery, QueryCache, QueryClient } from "@tanstack/react-query"
+import { redirect } from "@tanstack/react-router"
 import SuperJSON from "superjson"
 
 const makeQueryClient = () => {
@@ -16,7 +18,14 @@ const makeQueryClient = () => {
 			hydrate: { deserializeData: SuperJSON.deserialize }
 		},
 		queryCache: new QueryCache({
-			onError: (error, query) => {
+			onError: (_error, query) => {
+				const error = _error as unknown as TRPCClientErrorLike<AppRouter>
+				const code = error.data?.code
+
+				if (code === "UNAUTHORIZED") {
+					throw redirect({ to: "/" })
+				}
+
 				if (query.state.data !== undefined) {
 					toast.error(error.message, {
 						action: {

@@ -3,7 +3,7 @@ import fsDriver from "unstorage/drivers/fs"
 import redisDriver from "unstorage/drivers/redis"
 import { env } from "@/environment/env"
 
-export const getDriver = () => {
+const getDriver = () => {
 	if (env.NODE_ENV === "production") {
 		return redisDriver({
 			base: "auth",
@@ -15,3 +15,5 @@ export const getDriver = () => {
 		base: join(process.cwd(), ".auth")
 	})
 }
+
+export const driver = getDriver()

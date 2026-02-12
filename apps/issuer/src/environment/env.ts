@@ -4,6 +4,8 @@ import { z } from "zod"
 export const env = createEnv({
 	server: {
 		REDIS_URL: z.string(),
+		DATABASE_URL: z.string(),
+		DATABASE_AUTH_TOKEN: z.string(),
 		PORT: z.coerce.number().positive().default(3000)
 	},
 	shared: {

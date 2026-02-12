@@ -3,9 +3,9 @@ import { PasswordProvider, PasswordUI } from "@repo/auth/providers/password"
 import { Select } from "@repo/auth/select"
 import { UnStorage } from "@repo/auth/storages/unstorage"
 import { subjects } from "@repo/auth/subjects"
-import { getDriver } from "@/libs/storage"
-
-const driver = getDriver()
+import { userTable } from "@repo/db/schema"
+import { driver } from "@/libs/storage"
+import { db } from "./db"
 
 export const auth = issuer({
 	subjects,
@@ -25,7 +25,7 @@ export const auth = issuer({
 		}
 	},
 	ttl: {
-		reuse: 0,
+		reuse: 60,
 		access: 3600,
 		refresh: 604800,
 		retention: 1209600
@@ -69,13 +69,30 @@ export const auth = issuer({
 			})
 		)
 	},
-	success: (ctx, value) => {
-		if (value.provider === "password") {
-			return ctx.subject("user", {
-				email: value.email
-			})
-		}
+	success: async (ctx, value) => {
+		if (value.provider !== "password") throw new Error("Unknown provider")
 
-		throw new Error("Unknown provider")
+		const now = new Date().toISOString()
+
+		const [user] = await db
+			.insert(userTable)
+			.values({
+				id: crypto.randomUUID(),
+				email: value.email,
+				createdAt: now,
+				updatedAt: now
+			})
+			.onConflictDoUpdate({
+				target: userTable.email,
+				set: { updatedAt: now }
+			})
+			.returning()
+
+		if (!user) throw new Error("Error while creating user")
+
+		return ctx.subject("user", {
+			id: user.id,
+			email: user.email
+		})
 	}
 })

@@ -35,7 +35,7 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 
 			<div className="mt-2 flex flex-wrap items-center justify-center gap-3">
 				<Button
-					className="flex cursor-pointer items-center gap-2"
+					className="flex items-center gap-2"
 					onClick={() => void router.invalidate()}
 					variant="default"
 				>

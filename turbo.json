@@ -9,6 +9,9 @@
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
 			"outputs": ["dist/**", ".output/**", ".typescript/tsbuildinfo.json"]
 		},
+		"clean": {
+			"cache": false
+		},
 		"start": {
 			"cache": false,
 			"persistent": true
@@ -16,9 +19,6 @@
 		"dev": {
 			"cache": false,
 			"persistent": true
-		},
-		"clean": {
-			"cache": false
 		},
 		"ui-add": {
 			"cache": false,
@@ -34,12 +34,12 @@
 		"db:reset": {
 			"cache": false
 		},
+		"db:generate": {
+			"cache": false
+		},
 		"db:studio": {
 			"cache": false,
 			"persistent": true
-		},
-		"db:generate": {
-			"cache": false
 		}
 	}
 }

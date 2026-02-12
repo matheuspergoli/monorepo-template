@@ -1,6 +1,5 @@
-import { trpcServer } from "@hono/trpc-server"
-import { getLogger } from "@repo/logger"
 import { appRouter } from "@repo/trpc"
+import { fetchRequestHandler } from "@repo/trpc/adapters/fetch"
 import { createTRPCContext } from "@repo/trpc/context"
 import { Hono } from "hono"
 import { contextStorage } from "hono/context-storage"
@@ -12,12 +11,6 @@ import { z } from "zod"
 import { env } from "@/environment/env"
 import { auth } from "@/libs/auth"
 
-getLogger({
-	version: "1.0.0",
-	service: "server",
-	node_env: env.NODE_ENV
-})
-
 const app = new Hono()
 
 app.use(
@@ -28,9 +21,10 @@ app.use(
 	cors({ credentials: true, origin: env.FRONTEND_URL })
 )
 
-app.use(
-	"/trpc/*",
-	trpcServer({
+app.use("/trpc/*", async (c) => {
+	return fetchRequestHandler({
+		endpoint: "/trpc",
+		req: c.req.raw,
 		router: appRouter,
 		createContext: (opts) => {
 			return createTRPCContext({
@@ -46,7 +40,7 @@ app.use(
 			})
 		}
 	})
-)
+})
 
 app.get("/", (c) => {
 	return c.text("OK")
