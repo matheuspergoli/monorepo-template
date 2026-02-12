@@ -3,6 +3,6 @@ import { createTRPCRouter } from "@/trpc"
 
 export const userRouter = createTRPCRouter({
 	get: authedProcedure.query(({ ctx }) => {
-		return ctx.session.subject.properties.email
+		return ctx.session.subject.properties
 	})
 })
