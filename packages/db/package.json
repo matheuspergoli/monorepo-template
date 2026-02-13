@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@libsql/client": "^0.17.0",
 		"drizzle-orm": "^0.45.1",
-		"ioredis": "^5.9.2",
+		"ioredis": "^5.9.3",
 		"unstorage": "^1.17.4"
 	},
 	"devDependencies": {
