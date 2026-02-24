@@ -23,11 +23,11 @@
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.2.0",
-		"@tabler/icons-react": "^3.36.1",
+		"@tabler/icons-react": "^3.37.1",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"sonner": "^2.0.7",
-		"tailwind-merge": "^3.4.0",
+		"tailwind-merge": "^3.5.0",
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
@@ -35,7 +35,7 @@
 		"@repo/tsconfig": "workspace:*",
 		"@types/react": "^19.2.14",
 		"react": "^19.2.4",
-		"tailwindcss": "^4.1.18",
+		"tailwindcss": "^4.2.1",
 		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
