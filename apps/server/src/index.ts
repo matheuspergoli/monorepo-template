@@ -23,8 +23,8 @@ app.use(
 
 app.use("/trpc/*", async (c) => {
 	return fetchRequestHandler({
-		endpoint: "/trpc",
 		req: c.req.raw,
+		endpoint: "/trpc",
 		router: appRouter,
 		createContext: (opts) => {
 			return createTRPCContext({

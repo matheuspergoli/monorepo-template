@@ -3,42 +3,30 @@
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
+	"imports": {
+		"#src/*": "./src/*.ts"
+	},
 	"exports": {
-		".": {
-			"types": "./dist/root.d.ts",
-			"import": "./src/root.ts"
-		},
-		"./client": {
-			"types": "./dist/client.d.ts",
-			"import": "./src/client.ts"
-		},
-		"./context": {
-			"types": "./dist/context.d.ts",
-			"import": "./src/context.ts"
-		},
-		"./adapters/*": {
-			"types": "./dist/adapters/*.d.ts",
-			"import": "./src/adapters/*.ts"
-		}
+		".": "./src/root.ts",
+		"./client": "./src/client.ts",
+		"./context": "./src/context.ts",
+		"./adapters/*": "./src/adapters/*.ts"
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc && tsc-alias",
-		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"clean": "rm -rf .turbo .typescript dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
-		"@trpc/client": "^11.10.0",
-		"@trpc/server": "^11.10.0",
+		"@trpc/client": "^11.11.0",
+		"@trpc/server": "^11.11.0",
 		"superjson": "^2.2.6",
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
-		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
 }

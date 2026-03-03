@@ -1,6 +1,6 @@
 import React from "react"
 import { z } from "zod"
-import { type BaseTheme, baseThemes } from "@/libs/themes"
+import { type BaseTheme, baseThemes } from "#src/libs/themes"
 
 const ColorModeSchema = z.enum(["dark", "light", "system"])
 const ThemeNameSchema = z.enum(["default", ...baseThemes.slice(1).map((c) => c.name)] as const)

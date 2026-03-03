@@ -11,11 +11,11 @@
 		"css": "../../tooling/tailwind/index.css"
 	},
 	"aliases": {
-		"lib": "@/libs",
-		"hooks": "@/hooks",
-		"ui": "@/components",
-		"utils": "@/libs/utils",
-		"components": "@/components"
+		"lib": "#src/libs",
+		"hooks": "#src/hooks",
+		"ui": "#src/components",
+		"utils": "#src/libs/utils",
+		"components": "#src/components"
 	},
 	"registries": {},
 	"menuColor": "default",

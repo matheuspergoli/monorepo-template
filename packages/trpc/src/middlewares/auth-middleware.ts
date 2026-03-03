@@ -1,7 +1,7 @@
 import { getAuthCookieOptions } from "@repo/auth/cookie"
 import { subjects } from "@repo/auth/subjects"
 import { TRPCError } from "@trpc/server"
-import { middleware } from "@/trpc"
+import { middleware } from "#src/trpc"
 
 const prodCookieOptions = getAuthCookieOptions({ secure: true })
 const devCookieOptions = getAuthCookieOptions({ secure: false })

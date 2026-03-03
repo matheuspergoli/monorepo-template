@@ -16,6 +16,7 @@
 			"!**/.output",
 			"!node_modules",
 			"!**/.tanstack",
+			"!**/themes.css",
 			"!**/.typescript",
 			"!**/routeTree.gen.ts"
 		]

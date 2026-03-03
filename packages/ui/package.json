@@ -3,27 +3,24 @@
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
+	"imports": {
+		"#src/libs/*": "./src/libs/*.ts",
+		"#src/hooks/*": "./src/hooks/*.ts",
+		"#src/components/*": "./src/components/*.tsx"
+	},
 	"exports": {
-		"./libs/*": {
-			"types": "./dist/libs/*.d.ts",
-			"import": "./src/libs/*.ts"
-		},
-		"./components/*": {
-			"types": "./dist/components/*.d.ts",
-			"import": "./src/components/*.tsx"
-		}
+		"./libs/*": "./src/libs/*.ts",
+		"./components/*": "./src/components/*.tsx"
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc && tsc-alias",
-		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"ui-add": "pnpm dlx shadcn@latest add",
 		"clean": "rm -rf .turbo .typescript dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.2.0",
-		"@tabler/icons-react": "^3.37.1",
+		"@tabler/icons-react": "^3.38.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"sonner": "^2.0.7",
@@ -36,7 +33,6 @@
 		"@types/react": "^19.2.14",
 		"react": "^19.2.4",
 		"tailwindcss": "^4.2.1",
-		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
 }

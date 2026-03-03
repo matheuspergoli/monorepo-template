@@ -1,7 +1,6 @@
 {
 	"$schema": "https://turborepo.com/schema.json",
 	"ui": "tui",
-	"concurrency": "20",
 	"globalEnv": ["NODE_ENV", "VITE_BACKEND_URL", "VITE_AUTH_ISSUER_URL"],
 	"tasks": {
 		"build": {
@@ -25,8 +24,7 @@
 			"interactive": true
 		},
 		"typecheck": {
-			"dependsOn": ["^build"],
-			"outputs": [".typescript/tsbuildinfo.json"]
+			"dependsOn": ["^typecheck"]
 		},
 		"db:push": {
 			"cache": false

@@ -1,6 +1,6 @@
 import type { AuthClient } from "@repo/auth/client"
 import { createDatabase } from "@repo/db/client"
-import { Cookies } from "@/libs/cookies"
+import { Cookies } from "#src/libs/cookies"
 
 interface TRPCContextConfig {
 	request: Request

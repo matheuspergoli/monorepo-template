@@ -3,40 +3,20 @@
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
+	"imports": {
+		"#src/*": "./src/*.ts"
+	},
 	"exports": {
-		"./cookie": {
-			"types": "./dist/cookie.d.ts",
-			"import": "./src/cookie.ts"
-		},
-		"./issuer": {
-			"types": "./dist/issuer.d.ts",
-			"import": "./src/issuer.ts"
-		},
-		"./select": {
-			"types": "./dist/select.d.ts",
-			"import": "./src/select.ts"
-		},
-		"./client": {
-			"types": "./dist/client.d.ts",
-			"import": "./src/client.ts"
-		},
-		"./subjects": {
-			"types": "./dist/subjects.d.ts",
-			"import": "./src/subjects.ts"
-		},
-		"./storages/*": {
-			"types": "./dist/storages/*.d.ts",
-			"import": "./src/storages/*.ts"
-		},
-		"./providers/*": {
-			"types": "./dist/providers/*.d.ts",
-			"import": "./src/providers/*.ts"
-		}
+		"./cookie": "./src/cookie.ts",
+		"./issuer": "./src/issuer.ts",
+		"./select": "./src/select.ts",
+		"./client": "./src/client.ts",
+		"./subjects": "./src/subjects.ts",
+		"./storages/*": "./src/storages/*.ts",
+		"./providers/*": "./src/providers/*.ts"
 	},
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc && tsc-alias",
-		"dev": "tsc && tsc-alias && tsc --watch & tsc-alias --watch",
 		"clean": "rm -rf .turbo .typescript dist node_modules",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
@@ -46,7 +26,6 @@
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
-		"tsc-alias": "^1.8.16",
 		"typescript": "^5.9.3"
 	}
 }
