@@ -16,7 +16,7 @@
 		"@repo/ui": "workspace:*",
 		"@t3-oss/env-core": "^0.13.10",
 		"@tabler/icons-react": "^3.40.0",
-		"@tanstack/react-query": "^5.91.3",
+		"@tanstack/react-query": "^5.94.5",
 		"@tanstack/react-router": "^1.168.1",
 		"@tanstack/react-router-ssr-query": "^1.166.10",
 		"@tanstack/react-start": "^1.167.2",
