@@ -24,7 +24,7 @@
 		"@biomejs/biome": "^2.4.8",
 		"@turbo/gen": "^2.8.20",
 		"turbo": "^2.8.20",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"packageManager": "pnpm@10.0.0"
 }

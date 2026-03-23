@@ -20,13 +20,13 @@
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
-		"@trpc/client": "^11.14.1",
-		"@trpc/server": "^11.14.1",
+		"@trpc/client": "^11.15.0",
+		"@trpc/server": "^11.15.0",
 		"superjson": "^2.2.6",
 		"zod": "^4.3.6"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	}
 }
