@@ -24,7 +24,7 @@
 		"@libsql/client": "^0.17.2",
 		"drizzle-orm": "^0.45.1",
 		"ioredis": "^5.10.1",
-		"unstorage": "^1.17.4"
+		"unstorage": "^1.17.5"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
