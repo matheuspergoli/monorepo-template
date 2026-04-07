@@ -4,9 +4,7 @@
 	"version": "0.1.0",
 	"type": "module",
 	"imports": {
-		"#src/libs/*": "./src/libs/*.ts",
-		"#src/hooks/*": "./src/hooks/*.ts",
-		"#src/components/*": "./src/components/*.tsx"
+		"#src/*": "./src/*.ts"
 	},
 	"exports": {
 		"./libs/*": "./src/libs/*.ts",

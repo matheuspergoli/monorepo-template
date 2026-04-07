@@ -6,10 +6,7 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
 	return (
-		<main
-			className="flex h-screen w-screen items-center justify-center"
-			style={{ display: "grid", gridTemplateColumns: "repeat(12, minmax(0, 1fr))" }}
-		>
+		<main className="flex h-screen w-screen items-center justify-center">
 			<h1>Hello World!</h1>
 		</main>
 	)
