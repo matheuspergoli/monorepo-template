@@ -10,6 +10,7 @@ import { secureHeaders } from "hono/secure-headers"
 import { z } from "zod"
 import { env } from "@/environment/env"
 import { auth } from "@/libs/auth"
+import { createCookieStore } from "@/libs/cookies"
 
 const app = new Hono()
 
@@ -31,6 +32,7 @@ app.use("/trpc/*", async (c) => {
 				auth,
 				request: opts.req,
 				headers: opts.resHeaders,
+				cookies: createCookieStore(c),
 				database: {
 					redis: env.REDIS_URL,
 					url: env.DATABASE_URL,
