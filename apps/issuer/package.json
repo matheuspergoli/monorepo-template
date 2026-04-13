@@ -13,7 +13,6 @@
 	},
 	"dependencies": {
 		"@repo/auth": "workspace:*",
-		"@repo/db": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
 		"hono": "^4.12.12",
 		"ioredis": "^5.10.1",

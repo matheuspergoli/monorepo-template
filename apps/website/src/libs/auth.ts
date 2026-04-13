@@ -49,18 +49,6 @@ export const $login = createServerFn({ method: "POST" }).handler(async () => {
 })
 
 export const $logout = createServerFn({ method: "POST" }).handler(async () => {
-	const refreshToken = getCookie(REFRESH_TOKEN_NAME)
-
-	if (refreshToken) {
-		const revoke = await auth.revoke(refreshToken, {
-			tokenTypeHint: REFRESH_TOKEN_NAME
-		})
-
-		if (!revoke.success) {
-			console.warn("Failed to revoke token on logout:", revoke.error)
-		}
-	}
-
 	deleteCookie(ACCESS_TOKEN_NAME)
 	deleteCookie(REFRESH_TOKEN_NAME)
 
