@@ -9,7 +9,7 @@ export const env = createEnv({
 		PORT: z.coerce.number().positive().default(3000)
 	},
 	shared: {
-		NODE_ENV: z.enum(["development", "production", "test"])
+		NODE_ENV: z.enum(["development", "production", "test"]).default("development")
 	},
 	runtimeEnv: process.env,
 	emptyStringAsUndefined: true,

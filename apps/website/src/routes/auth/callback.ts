@@ -1,10 +1,10 @@
 import { getAuthCookieOptions } from "@repo/auth/cookie"
 import { createFileRoute, redirect } from "@tanstack/react-router"
 import { setCookie } from "@tanstack/react-start/server"
-import { env } from "@/environment/env"
+import { isProduction } from "@/environment/env"
 import { ACCESS_TOKEN_NAME, auth, REFRESH_TOKEN_NAME } from "@/libs/auth"
 
-const cookieOptions = getAuthCookieOptions({ secure: env.NODE_ENV === "production" })
+const cookieOptions = getAuthCookieOptions({ secure: isProduction })
 
 export const Route = createFileRoute("/auth/callback")({
 	server: {

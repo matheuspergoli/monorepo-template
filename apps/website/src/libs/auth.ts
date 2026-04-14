@@ -9,7 +9,7 @@ import {
 	getRequestHeader,
 	setCookie
 } from "@tanstack/react-start/server"
-import { env } from "@/environment/env"
+import { env, isProduction } from "@/environment/env"
 
 export const auth = createAuthClient({
 	issuer: env.VITE_AUTH_ISSUER_URL
@@ -18,7 +18,7 @@ export const auth = createAuthClient({
 export const ACCESS_TOKEN_NAME = "access_token"
 export const REFRESH_TOKEN_NAME = "refresh_token"
 
-const cookieOptions = getAuthCookieOptions({ secure: env.NODE_ENV === "production" })
+const cookieOptions = getAuthCookieOptions({ secure: isProduction })
 
 export const $login = createServerFn({ method: "POST" }).handler(async () => {
 	const accessToken = getCookie(ACCESS_TOKEN_NAME)
