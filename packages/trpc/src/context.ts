@@ -3,10 +3,10 @@ import { createDatabase } from "@repo/db/client"
 import type { CookieStore } from "#src/libs/cookies"
 
 interface TRPCContextConfig {
+	auth: AuthClient
 	request: Request
 	headers: Headers
 	cookies: CookieStore
-	auth: AuthClient
 	env: {
 		node_env: "production" | "development" | "test"
 	}

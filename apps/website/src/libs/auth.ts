@@ -6,7 +6,7 @@ import { createServerFn, useServerFn } from "@tanstack/react-start"
 import {
 	deleteCookie,
 	getCookie,
-	getRequestHeader,
+	getRequestUrl,
 	setCookie
 } from "@tanstack/react-start/server"
 import { env, isProduction } from "@/environment/env"
@@ -37,9 +37,9 @@ export const $login = createServerFn({ method: "POST" }).handler(async () => {
 		}
 	}
 
-	const host = getRequestHeader("Host")
-	const protocol = host?.includes("localhost") ? "http" : "https"
-	const result = await auth.authorize(`${protocol}://${host}/auth/callback`, "code")
+	const requestUrl = getRequestUrl({ xForwardedHost: true, xForwardedProto: true })
+	const callbackUrl = new URL("/auth/callback", requestUrl).toString()
+	const result = await auth.authorize(callbackUrl, "code")
 
 	if (result.success) {
 		throw redirect({ href: result.data.url })

@@ -3,7 +3,8 @@ import { z } from "zod"
 import { type BaseTheme, baseThemes } from "#src/libs/themes"
 
 const ColorModeSchema = z.enum(["dark", "light", "system"])
-const ThemeNameSchema = z.enum(["default", ...baseThemes.slice(1).map((c) => c.name)] as const)
+const themeNames = baseThemes.map((theme) => theme.name) as [ThemeName, ...ThemeName[]]
+const ThemeNameSchema = z.enum(themeNames)
 
 export type ThemeName = BaseTheme["name"]
 export type ColorMode = z.infer<typeof ColorModeSchema>
