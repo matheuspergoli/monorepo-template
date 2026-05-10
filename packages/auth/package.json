@@ -21,8 +21,8 @@
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {
-		"@draftlab/auth": "^0.21.0",
-		"zod": "^4.4.2"
+		"@draftlab/auth": "^0.24.0",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",

@@ -15,8 +15,8 @@
 		"@repo/auth": "workspace:*",
 		"@repo/trpc": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
-		"hono": "^4.12.16",
-		"zod": "^4.4.2"
+		"hono": "^4.12.18",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
