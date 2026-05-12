@@ -17,7 +17,7 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"clean": "rm -rf .turbo .typescript dist node_modules",
+		"clean": "rm -rf .turbo .typescript dist",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {

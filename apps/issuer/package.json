@@ -8,7 +8,7 @@
 		"build": "bun build --target=bun --minify --sourcemap=external --packages=external --outdir=dist ./src/index.ts",
 		"start": "NODE_ENV=production bun ./dist/index.js",
 		"dev": "NODE_ENV=development bun --watch ./src/index.ts",
-		"clean": "rm -rf .auth .turbo .typescript dist node_modules",
+		"clean": "rm -rf .auth .turbo .typescript dist",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {

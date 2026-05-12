@@ -13,7 +13,7 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"clean": "rm -rf .cache .turbo .typescript dist node_modules",
+		"clean": "rm -rf .cache .turbo .typescript dist",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
 		"db:push": "drizzle-kit push",
 		"db:studio": "drizzle-kit studio",

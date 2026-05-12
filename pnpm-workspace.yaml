@@ -2,3 +2,5 @@ packages:
   - apps/*
   - tooling/*
   - packages/*
+allowBuilds:
+  esbuild: true

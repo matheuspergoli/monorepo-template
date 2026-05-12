@@ -13,7 +13,7 @@
 	"license": "MIT",
 	"scripts": {
 		"ui-add": "pnpm dlx shadcn@canary add",
-		"clean": "rm -rf .turbo .typescript dist node_modules",
+		"clean": "rm -rf .turbo .typescript dist",
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false"
 	},
 	"dependencies": {
