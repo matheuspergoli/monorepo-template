@@ -1,8 +1,9 @@
 import type { AuthClient } from "@repo/auth/client"
-import { createDatabase } from "@repo/db/client"
+import type { Database } from "@repo/db/client"
 import type { CookieStore } from "#src/libs/cookies"
 
 interface TRPCContextConfig {
+	db: Database
 	auth: AuthClient
 	request: Request
 	headers: Headers
@@ -10,23 +11,11 @@ interface TRPCContextConfig {
 	env: {
 		node_env: "production" | "development" | "test"
 	}
-	database: {
-		url: string
-		token: string
-		redis: string
-	}
 }
 
 export const createTRPCContext = async (context: TRPCContextConfig) => {
-	const db = createDatabase({
-		env: context.env,
-		url: context.database.url,
-		redis: context.database.redis,
-		token: context.database.token
-	})
-
 	return {
-		db,
+		db: context.db,
 		env: context.env,
 		auth: context.auth,
 		cookies: context.cookies,

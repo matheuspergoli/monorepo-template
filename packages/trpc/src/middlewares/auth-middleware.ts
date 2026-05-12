@@ -12,6 +12,9 @@ export const authMiddleware = middleware(async ({ ctx, next }) => {
 	const options = ctx.env.node_env === "production" ? prodCookieOptions : devCookieOptions
 
 	if (!access) {
+		ctx.cookies.delete("access_token", { path: "/" })
+		ctx.cookies.delete("refresh_token", { path: "/" })
+
 		throw new TRPCError({
 			code: "UNAUTHORIZED",
 			message: "Token de acesso não encontrado"
@@ -23,6 +26,9 @@ export const authMiddleware = middleware(async ({ ctx, next }) => {
 	})
 
 	if (!verified.success) {
+		ctx.cookies.delete("access_token", { path: "/" })
+		ctx.cookies.delete("refresh_token", { path: "/" })
+
 		throw new TRPCError({
 			code: "UNAUTHORIZED",
 			message: "Verificação de usuário inválida"

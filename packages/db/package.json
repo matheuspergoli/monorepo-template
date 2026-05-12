@@ -17,8 +17,9 @@
 		"typecheck": "tsc --noEmit --emitDeclarationOnly false",
 		"db:push": "drizzle-kit push",
 		"db:studio": "drizzle-kit studio",
+		"db:migrate": "drizzle-kit migrate",
 		"db:generate": "drizzle-kit generate",
-		"db:reset": "rm -rf .cache db.sqlite ./src/migrations && pnpm db:push"
+		"db:reset": "rm -rf .cache db.sqlite && pnpm db:push"
 	},
 	"dependencies": {
 		"@libsql/client": "^0.17.3",

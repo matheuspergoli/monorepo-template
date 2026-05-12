@@ -13,6 +13,7 @@
 	},
 	"dependencies": {
 		"@repo/auth": "workspace:*",
+		"@repo/db": "workspace:*",
 		"@repo/trpc": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
 		"hono": "^4.12.18",

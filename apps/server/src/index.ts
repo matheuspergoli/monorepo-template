@@ -11,6 +11,7 @@ import { z } from "zod"
 import { env } from "@/environment/env"
 import { auth } from "@/libs/auth"
 import { createCookieStore } from "@/libs/cookies"
+import { db } from "@/libs/db"
 
 const app = new Hono()
 
@@ -29,15 +30,11 @@ app.use("/trpc/*", async (c) => {
 		router: appRouter,
 		createContext: (opts) => {
 			return createTRPCContext({
+				db,
 				auth,
 				request: opts.req,
 				headers: opts.resHeaders,
 				cookies: createCookieStore(c),
-				database: {
-					redis: env.REDIS_URL,
-					url: env.DATABASE_URL,
-					token: env.DATABASE_AUTH_TOKEN
-				},
 				env: { node_env: env.NODE_ENV }
 			})
 		}

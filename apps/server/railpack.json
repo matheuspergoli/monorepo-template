@@ -16,11 +16,19 @@
 			"commands": ["corepack enable && pnpm install"]
 		},
 		"build": {
-			"inputs": [{ "step": "install", "include": ["."] }],
+			"inputs": [{ "step": "migrate", "include": ["."] }],
 			"caches": ["pnpm-store"],
 			"commands": [
 				"PATH:node_modules/.bin",
 				"corepack enable && pnpm --filter @repo/server build"
+			]
+		},
+		"migrate": {
+			"inputs": [{ "step": "install", "include": ["."] }],
+			"caches": ["pnpm-store"],
+			"commands": [
+				"PATH:node_modules/.bin",
+				"corepack enable && pnpm --filter @repo/db db:migrate"
 			]
 		}
 	},
