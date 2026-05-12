@@ -71,12 +71,15 @@ const updateColorModeClass = (colorMode: ColorMode) => {
 }
 
 const updateThemeClass = (theme: ThemeName) => {
-	const body = document.body
-	for (const className of Array.from(body.classList)) {
-		if (className.startsWith("theme-")) body.classList.remove(className)
+	const root = document.documentElement
+
+	root.classList.remove("theme-scaled")
+	for (const className of Array.from(root.classList)) {
+		if (className.startsWith("theme-")) root.classList.remove(className)
 	}
-	body.classList.add(`theme-${theme}`)
-	if (theme.endsWith("-scaled")) body.classList.add("theme-scaled")
+
+	root.classList.add(`theme-${theme}`)
+	if (theme.endsWith("-scaled")) root.classList.add("theme-scaled")
 }
 
 const setupSystemPreferenceListener = () => {
@@ -96,6 +99,11 @@ const getNextColorMode = (current: ColorMode): ColorMode => {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 	const [theme, setThemeState] = React.useState(getStoredTheme)
 	const [colorMode, setColorModeState] = React.useState(getStoredColorMode)
+
+	React.useEffect(() => {
+		updateColorModeClass(colorMode)
+		updateThemeClass(theme)
+	}, [colorMode, theme])
 
 	React.useEffect(() => {
 		if (colorMode !== "system") return
@@ -157,9 +165,15 @@ export const getThemeScript = () => {
 
 		const storedTheme = localStorage.getItem("app-theme") ?? "default"
 		const validTheme = isValidTheme(storedTheme) ? storedTheme : "default"
+		for (const className of Array.from(document.documentElement.classList)) {
+			if (className.startsWith("theme-")) document.documentElement.classList.remove(className)
+		}
 
-		document.body?.classList.add(`theme-${validTheme}`)
-		if (validTheme.endsWith("-scaled")) document.body.classList.add("theme-scaled")
+		document.documentElement.classList.remove("theme-scaled")
+		document.documentElement.classList.add(`theme-${validTheme}`)
+		if (validTheme.endsWith("-scaled")) {
+			document.documentElement.classList.add("theme-scaled")
+		}
 	}
 
 	return `(${script.toString()})(${JSON.stringify(validThemes)})`
