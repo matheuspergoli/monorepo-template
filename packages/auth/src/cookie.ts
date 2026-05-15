@@ -1,6 +1,13 @@
-export const getAuthCookieOptions = ({ secure }: { secure: boolean }) => {
+export const getAuthCookieOptions = ({
+	secure,
+	domain
+}: {
+	secure: boolean
+	domain?: string
+}) => {
 	return {
 		secure,
+		domain,
 		path: "/",
 		httpOnly: true,
 		sameSite: "lax" as const,

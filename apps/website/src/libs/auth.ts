@@ -18,7 +18,26 @@ export const auth = createAuthClient({
 export const ACCESS_TOKEN_NAME = "access_token"
 export const REFRESH_TOKEN_NAME = "refresh_token"
 
-const cookieOptions = getAuthCookieOptions({ secure: isProduction })
+export const authCookieOptions = getAuthCookieOptions({
+	secure: isProduction,
+	domain: env.VITE_AUTH_COOKIE_DOMAIN
+})
+
+export const getAuthCallbackUrl = (request?: Request) => {
+	if (request) {
+		const forwardedHost = request.headers.get("x-forwarded-host")
+		const forwardedProto = request.headers.get("x-forwarded-proto")
+
+		if (forwardedHost && forwardedProto) {
+			return new URL("/auth/callback", `${forwardedProto}://${forwardedHost}`).toString()
+		}
+
+		return new URL("/auth/callback", request.url).toString()
+	}
+
+	const requestUrl = getRequestUrl({ xForwardedHost: true, xForwardedProto: true })
+	return new URL("/auth/callback", requestUrl).toString()
+}
 
 export const $login = createServerFn({ method: "POST" }).handler(async () => {
 	const accessToken = getCookie(ACCESS_TOKEN_NAME)
@@ -30,15 +49,14 @@ export const $login = createServerFn({ method: "POST" }).handler(async () => {
 		})
 
 		if (verified.success && verified.data.tokens) {
-			setCookie(ACCESS_TOKEN_NAME, verified.data.tokens.access, cookieOptions)
-			setCookie(REFRESH_TOKEN_NAME, verified.data.tokens.refresh, cookieOptions)
+			setCookie(ACCESS_TOKEN_NAME, verified.data.tokens.access, authCookieOptions)
+			setCookie(REFRESH_TOKEN_NAME, verified.data.tokens.refresh, authCookieOptions)
 
 			throw redirect({ to: "/" })
 		}
 	}
 
-	const requestUrl = getRequestUrl({ xForwardedHost: true, xForwardedProto: true })
-	const callbackUrl = new URL("/auth/callback", requestUrl).toString()
+	const callbackUrl = getAuthCallbackUrl()
 	const result = await auth.authorize(callbackUrl, "code")
 
 	if (result.success) {
