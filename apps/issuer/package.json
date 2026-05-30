@@ -15,7 +15,7 @@
 		"@repo/auth": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
 		"hono": "^4.12.23",
-		"ioredis": "^5.10.1",
+		"ioredis": "^5.11.0",
 		"unstorage": "^1.17.5",
 		"zod": "^4.4.3"
 	},
