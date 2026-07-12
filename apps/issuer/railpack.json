@@ -13,15 +13,12 @@
 				}
 			],
 			"caches": ["pnpm-store"],
-			"commands": ["corepack enable && pnpm install"]
+			"commands": ["corepack enable && pnpm install --frozen-lockfile"]
 		},
 		"build": {
 			"inputs": [{ "step": "install", "include": ["."] }],
 			"caches": ["pnpm-store"],
-			"commands": [
-				"PATH:node_modules/.bin",
-				"corepack enable && pnpm --filter @repo/issuer build"
-			]
+			"commands": ["corepack enable && pnpm --filter @repo/issuer build"]
 		}
 	},
 	"caches": {
@@ -31,7 +28,7 @@
 		}
 	},
 	"deploy": {
-		"startCommand": "bun ./apps/issuer/dist/index.js",
+		"startCommand": "NODE_ENV=production bun ./apps/issuer/dist/index.js",
 		"paths": ["node_modules/.bin"]
 	}
 }

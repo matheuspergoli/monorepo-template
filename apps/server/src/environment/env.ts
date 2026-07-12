@@ -3,12 +3,12 @@ import { z } from "zod"
 
 export const env = createEnv({
 	server: {
-		REDIS_URL: z.string(),
-		FRONTEND_URL: z.string(),
-		DATABASE_URL: z.string(),
-		AUTH_ISSUER_URL: z.string(),
+		REDIS_URL: z.url(),
+		FRONTEND_URL: z.url(),
+		DATABASE_URL: z.url(),
+		AUTH_ISSUER_URL: z.url(),
 		DATABASE_AUTH_TOKEN: z.string(),
-		PORT: z.coerce.number().positive().default(4000)
+		PORT: z.coerce.number().positive()
 	},
 	shared: {
 		NODE_ENV: z.enum(["development", "production", "test"]).default("development")
