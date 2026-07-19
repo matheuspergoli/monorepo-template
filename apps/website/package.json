@@ -15,11 +15,11 @@
 		"@repo/trpc": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
-		"@tabler/icons-react": "^3.44.0",
+		"@tabler/icons-react": "^3.45.0",
 		"@tanstack/react-query": "^5.101.2",
-		"@tanstack/react-router": "^1.170.17",
+		"@tanstack/react-router": "^1.170.18",
 		"@tanstack/react-router-ssr-query": "^1.167.1",
-		"@tanstack/react-start": "^1.168.27",
+		"@tanstack/react-start": "^1.168.30",
 		"react": "^19.2.7",
 		"react-dom": "^19.2.7",
 		"superjson": "^2.2.6",
@@ -28,12 +28,12 @@
 	"devDependencies": {
 		"@repo/tailwind": "workspace:*",
 		"@repo/tsconfig": "workspace:*",
-		"@tailwindcss/vite": "^4.3.2",
+		"@tailwindcss/vite": "^4.3.3",
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^6.0.3",
-		"tailwindcss": "^4.3.2",
+		"tailwindcss": "^4.3.3",
 		"typescript": "^7.0.2",
-		"vite": "^8.1.4"
+		"vite": "^8.1.5"
 	}
 }
