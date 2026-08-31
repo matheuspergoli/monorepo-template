@@ -23,7 +23,7 @@
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",
 		"superjson": "^2.2.6",
-		"zod": "^4.4.3"
+		"zod": "^4.5.4"
 	},
 	"devDependencies": {
 		"@repo/tailwind": "workspace:*",
@@ -31,7 +31,7 @@
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/react": "^19.2.18",
 		"@types/react-dom": "^19.2.5",
-		"@vitejs/plugin-react": "^6.1.0",
+		"@vitejs/plugin-react": "^6.1.1",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^7.0.2",
 		"vite": "^8.2.2"
