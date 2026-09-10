@@ -1,4 +1,4 @@
-import { QueryClientProvider, type QueryKey } from "@tanstack/react-query"
+import type { QueryKey } from "@tanstack/react-query"
 import { createRouter } from "@tanstack/react-router"
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query"
 import { routeTree } from "@/routeTree.gen"
@@ -20,10 +20,7 @@ export const getRouter = () => {
 		defaultHashScrollIntoView: { behavior: "smooth" },
 		defaultPendingComponent: () => <DefaultPending />,
 		defaultNotFoundComponent: () => <DefaultNotFound />,
-		defaultErrorComponent: (error) => <DefaultCatchBoundary {...error} />,
-		Wrap: ({ children }) => (
-			<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-		)
+		defaultErrorComponent: (error) => <DefaultCatchBoundary {...error} />
 	})
 
 	setupRouterSsrQueryIntegration({ router, queryClient })
