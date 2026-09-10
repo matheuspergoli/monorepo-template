@@ -34,7 +34,7 @@ const makeQueryClient = () => {
 		}),
 		mutationCache: new MutationCache({
 			onSuccess: (_data, _variables, _context, mutation) => {
-				queryClient.invalidateQueries({
+				void queryClient.invalidateQueries({
 					predicate: (query: Query) => {
 						return (
 							mutation.meta?.invalidates?.some((queryKey) => {
@@ -49,7 +49,7 @@ const makeQueryClient = () => {
 					action: {
 						label: "Tentar novamente",
 						onClick: () => {
-							queryClient.invalidateQueries()
+							void queryClient.invalidateQueries()
 						}
 					}
 				})

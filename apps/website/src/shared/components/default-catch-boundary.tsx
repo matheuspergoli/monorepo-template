@@ -15,7 +15,8 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 		select: (state) => state.id === rootRouteId
 	})
 
-	const errorMessage = error?.message || "Ocorreu um erro inesperado"
+	const caughtError = error instanceof Error ? error : undefined
+	const errorMessage = caughtError?.message || "Ocorreu um erro inesperado"
 
 	return (
 		<div className="flex min-h-screen w-full flex-col items-center justify-center gap-6 bg-background p-8 text-center">
@@ -26,9 +27,11 @@ export const DefaultCatchBoundary = ({ error }: ErrorComponentProps) => {
 				<h2 className="font-bold text-2xl tracking-tight">Ops...</h2>
 				<p className="text-muted-foreground">{errorMessage}</p>
 
-				{error?.stack && import.meta.env.DEV && (
+				{caughtError?.stack && import.meta.env.DEV && (
 					<div className="mt-4 overflow-x-auto rounded-md border bg-muted p-4 text-left">
-						<pre className="whitespace-pre-wrap text-destructive text-xs">{error.stack}</pre>
+						<pre className="whitespace-pre-wrap text-destructive text-xs">
+							{caughtError.stack}
+						</pre>
 					</div>
 				)}
 			</div>

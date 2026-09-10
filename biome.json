@@ -46,7 +46,7 @@
 					"fix": "safe",
 					"level": "warn",
 					"options": {
-						"functions": ["clsx", "cva", "cn", "cx"]
+						"functions": ["cva", "cn", "cx"]
 					}
 				}
 			}
