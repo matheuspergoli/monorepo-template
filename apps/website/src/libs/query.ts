@@ -1,4 +1,3 @@
-import type { AppRouter, TRPCClientErrorLike } from "@repo/trpc"
 import { toast } from "@repo/ui/components/sonner"
 import type { Query } from "@tanstack/react-query"
 import { MutationCache, matchQuery, QueryCache, QueryClient } from "@tanstack/react-query"
@@ -17,15 +16,17 @@ const makeQueryClient = () => {
 			hydrate: { deserializeData: SuperJSON.deserialize }
 		},
 		queryCache: new QueryCache({
-			onError: (_error, query) => {
-				const error = _error as unknown as TRPCClientErrorLike<AppRouter>
-
+			onError: (error, query) => {
 				if (query.state.data !== undefined) {
 					toast.error(error.message, {
 						action: {
 							label: "Tentar novamente",
 							onClick: () => {
-								query.fetch()
+								void queryClient.refetchQueries({
+									type: "all",
+									exact: true,
+									queryKey: query.queryKey
+								})
 							}
 						}
 					})
@@ -33,24 +34,15 @@ const makeQueryClient = () => {
 			}
 		}),
 		mutationCache: new MutationCache({
-			onSuccess: (_data, _variables, _context, mutation) => {
-				void queryClient.invalidateQueries({
+			onError: (error) => toast.error(error.message),
+			onSuccess: (_data, _variables, _onMutateResult, mutation) => {
+				return queryClient.invalidateQueries({
 					predicate: (query: Query) => {
 						return (
 							mutation.meta?.invalidates?.some((queryKey) => {
 								return matchQuery({ queryKey }, query)
 							}) ?? true
 						)
-					}
-				})
-			},
-			onError: (error) => {
-				toast.error(error.message, {
-					action: {
-						label: "Tentar novamente",
-						onClick: () => {
-							void queryClient.invalidateQueries()
-						}
 					}
 				})
 			}
