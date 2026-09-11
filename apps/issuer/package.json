@@ -17,7 +17,7 @@
 		"hono": "^4.13.7",
 		"ioredis": "^6.0.0",
 		"unstorage": "^1.17.5",
-		"zod": "^4.5.4"
+		"zod": "^4.6.1"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",

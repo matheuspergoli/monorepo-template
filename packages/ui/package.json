@@ -22,12 +22,12 @@
 		"class-variance-authority": "^0.7.1",
 		"cn": "^0.2.6",
 		"sonner": "^2.0.8",
-		"zod": "^4.5.4"
+		"zod": "^4.6.1"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
-		"@types/react": "^19.2.18",
-		"react": "^19.2.8",
+		"@types/react": "^19.3.0",
+		"react": "^19.3.0",
 		"typescript": "^7.0.2"
 	}
 }
