@@ -15,15 +15,15 @@
 		"@repo/trpc": "workspace:*",
 		"@repo/ui": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
-		"@tabler/icons-react": "^3.46.0",
-		"@tanstack/react-query": "^5.102.8",
-		"@tanstack/react-router": "^1.170.34",
-		"@tanstack/react-router-ssr-query": "^1.167.2",
-		"@tanstack/react-start": "^1.168.51",
+		"@tabler/icons-react": "^3.47.0",
+		"@tanstack/react-query": "^5.103.2",
+		"@tanstack/react-router": "^1.170.38",
+		"@tanstack/react-router-ssr-query": "^1.167.3",
+		"@tanstack/react-start": "^1.168.56",
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
 		"superjson": "^2.2.6",
-		"zod": "^4.6.1"
+		"zod": "^4.6.5"
 	},
 	"devDependencies": {
 		"@repo/tailwind": "workspace:*",
@@ -34,6 +34,6 @@
 		"@vitejs/plugin-react": "^6.1.1",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^7.0.2",
-		"vite": "^8.2.2"
+		"vite": "^8.3.0"
 	}
 }

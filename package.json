@@ -22,9 +22,9 @@
 		"clean": "turbo run clean && rm -rf .turbo node_modules"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5.12",
-		"@turbo/gen": "^2.10.12",
-		"turbo": "^2.10.12",
+		"@biomejs/biome": "^2.5.14",
+		"@turbo/gen": "^2.11.2",
+		"turbo": "^2.11.2",
 		"typescript": "^7.0.2"
 	},
 	"packageManager": "pnpm@11.15.0"

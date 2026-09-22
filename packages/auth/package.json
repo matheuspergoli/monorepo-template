@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"@draftlab/auth": "^0.24.0",
-		"zod": "^4.6.1"
+		"zod": "^4.6.5"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",

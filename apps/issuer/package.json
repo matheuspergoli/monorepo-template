@@ -14,10 +14,10 @@
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@t3-oss/env-core": "^0.13.11",
-		"hono": "^4.13.7",
+		"hono": "^4.13.8",
 		"ioredis": "^6.0.0",
 		"unstorage": "^1.17.5",
-		"zod": "^4.6.1"
+		"zod": "^4.6.5"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",
