@@ -1,11 +1,13 @@
 import { Toaster } from "@repo/ui/components/sonner"
 import { getThemeScript, ThemeProvider } from "@repo/ui/components/theming"
+import type { DbClient } from "@tanstack/db"
 import type { QueryClient } from "@tanstack/react-query"
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router"
 import type { ReactNode } from "react"
 import css from "@/styles/index.css?url"
 
 export const Route = createRootRouteWithContext<{
+	dbClient: DbClient
 	queryClient: QueryClient
 }>()({
 	head: () => ({
