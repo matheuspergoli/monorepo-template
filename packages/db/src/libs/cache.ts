@@ -25,7 +25,7 @@ interface UnstorageDriverCacheConfig {
 	driver?: Driver
 	/** Default TTL in seconds. Defaults to 300. */
 	defaultTtl?: number
-	/** Cache strategy. Defaults to "all". */
+	/** Cache strategy. Defaults to "explicit". */
 	strategy?: CacheStrategy
 	/** Namespace prefix. Defaults to "drizzle". */
 	namespace?: string
@@ -187,7 +187,7 @@ class UnstorageDriverCache extends Cache {
 		const namespace = config.namespace ?? "drizzle"
 		this.storage = prefixStorage(baseStorage, namespace)
 		this.defaultTtl = config.defaultTtl ?? 300
-		this._strategy = config.strategy ?? "all"
+		this._strategy = config.strategy ?? "explicit"
 	}
 
 	strategy(): CacheStrategy {
@@ -396,10 +396,14 @@ class UnstorageDriverCache extends Cache {
 	 * Handles both explicit tags and auto-invalidated tags.
 	 */
 	async onMutate(params: MutationOption): Promise<void> {
-		const tags = normalizeTags(params.tags)
-		const tables = Array.from(new Set(normalizeTables(params.tables)))
+		try {
+			const tags = normalizeTags(params.tags)
+			const tables = Array.from(new Set(normalizeTables(params.tables)))
 
-		await Promise.all([this.invalidateTags(tags), this.invalidateTables(tables)])
+			await Promise.all([this.invalidateTags(tags), this.invalidateTables(tables)])
+		} catch (error) {
+			console.error("[UnstorageDriverCache] Invalidation failed:", error)
+		}
 	}
 
 	/** Invalidates single tag and dependencies. */

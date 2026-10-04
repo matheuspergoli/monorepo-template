@@ -31,7 +31,7 @@ export const createDatabase = (config: DatabaseConfig) => {
 		if (config.env.node_env === "production") {
 			return new UnstorageDriverCache({
 				defaultTtl: 1800,
-				strategy: "all",
+				strategy: "explicit",
 				namespace: "drizzle:prod",
 				driver: redisDriver({
 					base: "drizzle",
@@ -42,7 +42,7 @@ export const createDatabase = (config: DatabaseConfig) => {
 
 		return new UnstorageDriverCache({
 			defaultTtl: 900,
-			strategy: "all",
+			strategy: "explicit",
 			namespace: "drizzle:dev",
 			driver: fsDriver({
 				base: DEV_CACHE_PATH
