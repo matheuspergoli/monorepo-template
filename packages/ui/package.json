@@ -22,7 +22,7 @@
 		"class-variance-authority": "^0.7.1",
 		"cn": "^0.4.0",
 		"sonner": "^2.0.8",
-		"zod": "^4.6.5"
+		"zod": "^4.6.6"
 	},
 	"devDependencies": {
 		"@repo/tsconfig": "workspace:*",

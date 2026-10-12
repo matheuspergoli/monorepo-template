@@ -18,7 +18,7 @@
 		"@tabler/icons-react": "^3.49.0",
 		"@tanstack/db": "^0.13.0",
 		"@tanstack/react-db": "^0.5.8",
-		"@tanstack/react-query": "^5.104.1",
+		"@tanstack/react-query": "^5.104.2",
 		"@tanstack/react-router": "^1.170.42",
 		"@tanstack/react-router-ssr-query": "^1.167.3",
 		"@tanstack/react-router-with-db": "^0.1.0",
@@ -26,7 +26,7 @@
 		"react": "^19.3.0",
 		"react-dom": "^19.3.0",
 		"superjson": "^2.2.6",
-		"zod": "^4.6.5"
+		"zod": "^4.6.6"
 	},
 	"devDependencies": {
 		"@repo/tailwind": "workspace:*",
